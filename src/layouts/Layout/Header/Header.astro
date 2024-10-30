@@ -1,38 +1,40 @@
 ---
+import Btn from "../../../components/buttons/Btn/Btn.astro";
 import Anchor from "../../../components/hyperlinks/Anchor/Anchor.astro";
 import Logo from "../../../components/logos/Logo/Logo.astro";
-import { ROUTER } from "../../../pages/router";
+import Network from "../../../components/navs/Network/Network.astro";
 ---
 
 <header>
   <nav>
-    <Anchor cls={["logo"]} href={ROUTER.index.href}><Logo /></Anchor>
-    <Anchor href={ROUTER.index.href}>{ROUTER.index.display}</Anchor>
-    <Anchor href={ROUTER.utils.href}>{ROUTER.utils.display}</Anchor>
-    <Anchor href={ROUTER.look.href}>{ROUTER.look.display}</Anchor>
+    <Logo />
+    <div class="wrapper">
+      <Anchor href="">Sobre Nosotros</Anchor>
+      <Anchor href="">Trabajo</Anchor>
+      <Anchor href="">Productos</Anchor>
+      <Anchor href="">Perspectivas</Anchor>
+    </div>
+    <Network />
+    <Btn>Contáctanos</Btn>
   </nav>
 </header>
 
 <style>
   header {
-    background-color: var(--bg-surf);
-    padding: var(--lg);
+    display: flex;
+    justify-content: center;
 
     nav {
+      max-width: 1505px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: end;
-      gap: var(--md);
-      display: flex;
+      align-items: center;
+      gap: var(--lg);
 
-      a {
-        min-height: 64px;
+      .wrapper {
         display: flex;
-        align-items: center;
-      }
-
-      .logo {
-        margin-right: auto;
+        gap: var(--md);
+        margin-left: 50px;
+        margin-right: 50px;
       }
     }
   }

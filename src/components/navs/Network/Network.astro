@@ -5,9 +5,9 @@ import { NETWORKS } from "./networks";
 
 <article>
   {
-    NETWORKS.map(({ url, Icon, display }) => (
+    NETWORKS.map(({ url, icon, display }) => (
       <GoTo title={display} href={url}>
-        {<Icon />}
+        <img src={icon.src} alt={display} />
       </GoTo>
     ))
   }
@@ -16,20 +16,14 @@ import { NETWORKS } from "./networks";
 <style>
   article {
     display: flex;
-    gap: var(--md);
+
+    align-items: center;
 
     a {
-      width: 32px;
-      height: 32px;
-      transition: transform ease 0.1s;
-
-      &:hover {
-        transform: scale(1.5);
-      }
-
-      svg {
-        max-width: 100%;
-        max-height: 100%;
+      img {
+        width: 35px;
+        height: 35px;
+        aspect-ratio: 1 / 1;
       }
     }
   }

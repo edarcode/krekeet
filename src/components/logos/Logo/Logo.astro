@@ -1,18 +1,18 @@
 ---
-import logo from "./logo_edarcode.avif";
+import { ROUTER } from "../../../pages/router";
+import Anchor from "../../hyperlinks/Anchor/Anchor.astro";
+import logo from "./logo.png";
 ---
 
-<img src={logo.src} alt="logo edarcode" />
+<Anchor href={ROUTER.index.href}
+  ><img src={logo.src} alt="logo edarcode" /></Anchor
+>
 
 <style>
-  img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.1);
+  a {
+    background-color: red !important;
+    img {
+      aspect-ratio: 163 / 47;
     }
   }
 </style>

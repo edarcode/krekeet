@@ -1,10 +1,10 @@
 :root {
-  --bg-main: #f5f5f5; /* Fondo Principal */
-  --bg-surf: #e0e0e0; /* Superficie */
-  --primary: #9d2f6b; /* Primario */
-  --secondary: #0cb2e8; /* Secundario */
-  --titles: #212121; /* Texto Principal */
-  --paras: #636363; /* Texto Secundario */
+  --bg-main: #000000; /* Fondo Principal */
+  --bg-surf: #000000; /* Superficie */
+  --primary: #3ab54b; /* Primario */
+  --secondary: #3ab54b; /* Secundario */
+  --titles: #fff; /* Texto Principal */
+  --paras: #fff; /* Texto Secundario */
   --hl: #ffbc42; /* Resaltado */
   --border: #cccccc; /* Borde */
   --accent: #dd4ea5; /* Acento */

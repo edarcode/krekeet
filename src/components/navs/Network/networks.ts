@@ -1,33 +1,27 @@
-import Discord from "../../icons/Discord.astro";
-import Github from "../../icons/Github.astro";
-import Instagram from "../../icons/Instagram.astro";
-import Linkedin from "../../icons/Linkedin.astro";
-import Youtube from "../../icons/Youtube.astro";
+import tiktok from "./icons/tiktok.png";
+import instagram from "./icons/instagram.png";
+import linkedin from "./icons/linkedin.png";
+import youtube from "./icons/youtube.png";
 
 export const NETWORKS = [
   {
-    display: "github",
+    display: "tiktok",
     url: "https://github.com/edarcode",
-    Icon: Github,
-  },
-  {
-    display: "youtube",
-    url: "https://youtube.com/@edarcode8124?si=rdyoVhSE8RuFOy1r",
-    Icon: Youtube,
+    icon: tiktok,
   },
   {
     display: "instagram",
-    url: "https://www.instagram.com/edarcode",
-    Icon: Instagram,
+    url: "https://youtube.com/@edarcode8124?si=rdyoVhSE8RuFOy1r",
+    icon: instagram,
   },
   {
     display: "linkedin",
-    url: "https://www.linkedin.com/in/edarcode",
-    Icon: Linkedin,
+    url: "https://www.instagram.com/edarcode",
+    icon: linkedin,
   },
   {
-    display: "discord",
-    url: "https://discord.gg/HUfnRPjBHm",
-    Icon: Discord,
+    display: "youtube",
+    url: "https://www.linkedin.com/in/edarcode",
+    icon: youtube,
   },
 ];
