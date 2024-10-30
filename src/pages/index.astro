@@ -1,19 +1,53 @@
 ---
+import Logo from "../components/logos/Logo/Logo.astro";
 import Layout from "../layouts/Layout/Layout.astro";
 ---
 
 <Layout title="edarcode">
   <main>
-    <img src="/squirrel.png" alt="Ardilla" />
+    <picture>
+      <img src="/squirrel.png" alt="Ardilla" />
+      <div>
+        <Logo />
+        <p class="traz">Trazamos el <span>camino</span></p>
+        <p class="entre">Entre <span>Usuarios</span> con <span>Marca</span></p>
+      </div>
+    </picture>
   </main>
 </Layout>
 
 <style>
   main {
-    img {
-      width: 100%;
+    picture {
+      position: relative;
       max-height: 795px;
-      object-fit: cover;
+      max-width: 1598px;
+      margin-left: auto;
+      margin-right: auto;
+
+      img {
+        object-fit: cover;
+        aspect-ratio: 2122 / 795;
+      }
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: var(--xl);
+        transform: translateY(-50%);
+
+        span {
+          color: var(--primary);
+        }
+
+        .traz {
+          font-size: 116px;
+        }
+
+        .entre {
+          font-size: 40px;
+        }
+      }
     }
   }
 </style>
