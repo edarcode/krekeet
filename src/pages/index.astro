@@ -4,29 +4,28 @@ import Layout from "../layouts/Layout/Layout.astro";
 ---
 
 <Layout title="edarcode">
-  <main>
-    <picture>
-      <img src="/squirrel.png" alt="Ardilla" />
-      <div>
-        <Logo />
-        <p class="traz">Trazamos el <span>camino</span></p>
-        <p class="entre">Entre <span>Usuarios</span> con <span>Marca</span></p>
-      </div>
-    </picture>
-  </main>
+  <main></main>
 </Layout>
 
 <style>
   main {
+    display: grid;
+    align-content: start;
+    gap: var(--lg);
+    max-width: 1598px;
+    margin-left: auto;
+    margin-right: auto;
+
     picture {
       position: relative;
       max-height: 795px;
-      max-width: 1598px;
       margin-left: auto;
       margin-right: auto;
 
-      img {
+      .img {
         object-fit: cover;
+        width: 100%;
+        height: 795px;
         aspect-ratio: 2122 / 795;
       }
 
@@ -47,6 +46,35 @@ import Layout from "../layouts/Layout/Layout.astro";
         .entre {
           font-size: 40px;
         }
+      }
+    }
+
+    .clients {
+      display: grid;
+      gap: var(--lg);
+
+      .quote {
+        text-align: center;
+        align-self: center;
+        h2 {
+          font-size: 50px;
+
+          span {
+            color: var(--primary);
+          }
+        }
+
+        p {
+          font-size: 32px;
+        }
+      }
+
+      .logos {
+        background-color: #fff;
+        border-radius: var(--lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

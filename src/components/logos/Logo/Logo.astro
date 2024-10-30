@@ -1,10 +1,17 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { ROUTER } from "../../../pages/router";
 import Anchor from "../../hyperlinks/Anchor/Anchor.astro";
 import logo from "./logo.png";
+
+interface Props extends HTMLAttributes<"a"> {
+  cls: string;
+}
+
+const { cls } = Astro.props;
 ---
 
-<Anchor href={ROUTER.index.href}
+<Anchor cls={cls} href={ROUTER.index.href}
   ><img src={logo.src} alt="logo edarcode" /></Anchor
 >
 

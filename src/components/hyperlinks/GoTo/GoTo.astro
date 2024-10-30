@@ -1,5 +1,7 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
   href: string;
   cls?: string[];
   title?: string;
@@ -26,8 +28,6 @@ const isActive = currentRoute === href;
 <style>
   a {
     color: inherit;
-    padding: 0 var(--sm);
-    border-radius: var(--sm);
 
     &:hover {
       color: var(--hover);

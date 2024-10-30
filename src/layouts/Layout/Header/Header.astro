@@ -6,35 +6,41 @@ import Network from "../../../components/navs/Network/Network.astro";
 ---
 
 <header>
-  <nav>
-    <Logo />
+  <nav class="nav">
+    <Logo cls="logo" />
     <div class="wrapper">
       <Anchor href="">Sobre Nosotros</Anchor>
       <Anchor href="">Trabajo</Anchor>
       <Anchor href="">Productos</Anchor>
       <Anchor href="">Perspectivas</Anchor>
     </div>
-    <Network />
+    <Network cls="network" />
     <Btn>Contáctanos</Btn>
   </nav>
 </header>
 
 <style>
   header {
-    display: flex;
-    justify-content: center;
+    border: 1px solid red;
 
-    nav {
-      max-width: 1505px;
+    .nav {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: var(--lg);
 
+      .logo {
+        margin-right: auto;
+      }
+
       .wrapper {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--md);
-        margin-left: 50px;
-        margin-right: 50px;
+      }
+
+      .network {
+        margin-left: auto;
       }
     }
   }

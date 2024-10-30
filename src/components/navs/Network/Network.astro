@@ -1,9 +1,16 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import GoTo from "../../hyperlinks/GoTo/GoTo.astro";
 import { NETWORKS } from "./networks";
+
+interface Props extends HTMLAttributes<"nav"> {
+  cls: string;
+}
+
+const { cls, ...extraProps } = Astro.props;
 ---
 
-<article>
+<nav class:list={[cls]} {...extraProps}>
   {
     NETWORKS.map(({ url, icon, display }) => (
       <GoTo title={display} href={url}>
@@ -11,19 +18,17 @@ import { NETWORKS } from "./networks";
       </GoTo>
     ))
   }
-</article>
+</nav>
 
 <style>
-  article {
+  nav {
     display: flex;
-
     align-items: center;
 
     a {
       img {
         width: 35px;
         height: 35px;
-        aspect-ratio: 1 / 1;
       }
     }
   }
