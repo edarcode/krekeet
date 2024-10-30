@@ -1,0 +1,44 @@
+---
+import Fancy from "../../../components/spans/Fancy/Fancy.astro";
+import { CLIENTS } from "./clients";
+---
+
+<article>
+  <div class="quote">
+    <h2>Nuestros <Fancy>Clientes</Fancy></h2>
+    <p>Marcas que han confiado en nosotros</p>
+  </div>
+  <div class="logos">
+    {
+      CLIENTS.map((client) => (
+        <img src={client.logo.src} alt={client.display} />
+      ))
+    }
+  </div>
+</article>
+
+<style>
+  article {
+    display: grid;
+    gap: var(--md);
+    justify-items: center;
+
+    .quote {
+      text-align: center;
+      font-size: 32px;
+
+      h2 {
+        font-size: 50px;
+      }
+    }
+
+    .logos {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: var(--white);
+      padding: var(--lg);
+      border-radius: 23px;
+    }
+  }
+</style>
