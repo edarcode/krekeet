@@ -4,7 +4,7 @@ import { NETWORKS } from "./networks";
 import GoToExternalPage from "../../hyperlinks/GoToExternalPage/GoToExternalPage.astro";
 
 interface Props extends HTMLAttributes<"nav"> {
-  cls: string;
+  cls?: string;
 }
 
 const { cls, ...extraProps } = Astro.props;

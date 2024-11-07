@@ -1,0 +1,28 @@
+---
+import Btn from "../../../../components/buttons/Btn/Btn.astro";
+import GoToPage from "../../../../components/hyperlinks/GoToPage/GoToPage.astro";
+import Logo from "../../../../components/logos/Logo/Logo.astro";
+import Network from "../../../../components/navs/Network/Network.astro";
+import { PAGES } from "../../../../pages/pages";
+
+const { about, contact, index, perspective, products, work } = PAGES;
+---
+
+<nav>
+  <GoToPage href={index.path}><Logo /></GoToPage>
+  <div>
+    <GoToPage href={about.path}>{about.display}</GoToPage>
+    <GoToPage href={work.path}>{work.display}</GoToPage>
+    <GoToPage href={products.path}>{products.display}</GoToPage>
+    <GoToPage href={perspective.path}>{perspective.display}</GoToPage>
+  </div>
+  <div>
+    <Network />
+    <GoToPage href={contact.path}><Btn>{contact.display}</Btn></GoToPage>
+  </div>
+</nav>
+
+<style>
+  nav {
+  }
+</style>

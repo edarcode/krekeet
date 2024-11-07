@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import logo from "./logo.png";
+
+interface Props extends HTMLAttributes<"picture"> {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
+---
+
+<picture class:list={["logo", cls]}>
+  <img src={logo.src} alt="logo krekeet" />
+</picture>
+
+<style>
+  .logo {
+    width: 163px;
+    height: 47px;
+    aspect-ratio: 163 / 47;
+  }
+</style>
