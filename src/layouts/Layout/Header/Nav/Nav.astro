@@ -5,7 +5,6 @@ import GoToPage from "../../../../components/hyperlinks/GoToPage/GoToPage.astro"
 import Logo from "../../../../components/logos/Logo/Logo.astro";
 import Network from "../../../../components/navs/Network/Network.astro";
 import { PAGES } from "../../../../pages/pages";
-import cross from "./cross.svg";
 import lines from "./lines.svg";
 
 interface Props extends HTMLAttributes<"nav"> {
@@ -32,15 +31,27 @@ const { about, contact, index, perspective, products, work } = PAGES;
     </div>
   </div>
   <picture id="menu" class="menu">
-    <img src={lines.src} alt="menu" />
+    <img id="menuImg" src={lines.src} alt="menu" />
   </picture>
 </nav>
 
 <script>
+  import cross from "./cross.svg";
+  import lines from "./lines.svg";
+
   const wrapper = document.querySelector("#navWrapper") as HTMLElement;
   const menu = document.querySelector("#menu") as HTMLElement;
+  const menuImg = document.querySelector("#menuImg") as HTMLElement;
 
   menu.addEventListener("click", () => {
+    const currentSrc = menuImg.getAttribute("src");
+
+    if (currentSrc === lines.src) {
+      menuImg.setAttribute("src", cross.src);
+    } else {
+      menuImg.setAttribute("src", lines.src);
+    }
+
     wrapper.classList.toggle("open");
   });
 </script>
@@ -93,8 +104,8 @@ const { about, contact, index, perspective, products, work } = PAGES;
         left: 0;
 
         transition:
-          transform 1s,
-          opacity 0.3s;
+          transform 0.5s,
+          opacity 0.2s;
         transform: translateY(-1000px);
         opacity: 0;
 
