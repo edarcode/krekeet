@@ -1,7 +1,6 @@
 ---
 import "../../styles/reset.css";
 import "../../styles/colors.css";
-import "../../styles/scroll.css";
 import "../../styles/scales.css";
 import "../../styles/fonts.css";
 import Header from "./Header/Header.astro";
@@ -18,41 +17,21 @@ const { title } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Krekeet" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
-<style is:global>
-  :root {
-    --mw-page: 1600px;
-    --b: 1px solid var(--primary);
-  }
 
+<style>
   body {
-    background-color: var(--bg-main);
-    color: var(--paras);
-    padding: var(--lg);
-
-    min-height: 100vh;
-    max-width: var(--mw-page);
-
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: var(--xl);
-
-    margin-left: auto;
-    margin-right: auto;
-
-    main {
-      width: 100%;
-    }
   }
 </style>

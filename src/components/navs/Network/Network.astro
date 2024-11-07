@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import GoTo from "../../hyperlinks/GoTo/GoTo.astro";
 import { NETWORKS } from "./networks";
+import GoToExternalPage from "../../hyperlinks/GoToExternalPage/GoToExternalPage.astro";
 
 interface Props extends HTMLAttributes<"nav"> {
   cls: string;
@@ -13,9 +13,9 @@ const { cls, ...extraProps } = Astro.props;
 <nav class:list={[cls]} {...extraProps}>
   {
     NETWORKS.map(({ url, icon, display }) => (
-      <GoTo title={display} href={url}>
+      <GoToExternalPage title={display} href={url}>
         <img src={icon.src} alt={display} />
-      </GoTo>
+      </GoToExternalPage>
     ))
   }
 </nav>

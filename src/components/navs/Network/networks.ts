@@ -1,7 +1,7 @@
-import tiktok from "./icons/tiktok.png";
-import instagram from "./icons/instagram.png";
-import linkedin from "./icons/linkedin.png";
-import youtube from "./icons/youtube.png";
+import tiktok from "./icons/tiktok.svg";
+import instagram from "./icons/instagram.svg";
+import linkedin from "./icons/linkedin.svg";
+import youtube from "./icons/youtube.svg";
 
 export const NETWORKS = [
   {
