@@ -38,6 +38,7 @@
             src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759650/krekeet/fh4srybax9hvkhe0i6s3.mp4"
           ></video>
         </li>
+        <li class="splide__slide"></li>
       </ul>
     </div>
   </section>
@@ -59,27 +60,14 @@
 
     splide.mount();
 
-    let isSliderDone = false;
+    splide.on("move", (index) => {
+      if (index !== 4) return;
+      const slider = document.querySelector("#slider") as HTMLElement;
+      slider.classList.add("fade-out");
 
-    splide.on("moved", (index) => {
-      if (index === 3) isSliderDone = true;
-    });
-
-    document.addEventListener("scroll", () => {
-      if (isSliderDone) {
-        isSliderDone = false;
-        const slider = document.querySelector("#slider");
-
-        if (slider) {
-          // Agregar la clase que activa la animación
-          slider.classList.add("fade-out");
-
-          // Esperar el tiempo de duración de la animación antes de eliminar el elemento
-          slider.addEventListener("animationend", () => {
-            slider.remove();
-          });
-        }
-      }
+      slider.addEventListener("animationend", () => {
+        slider.remove();
+      });
     });
   });
 </script>
@@ -101,6 +89,8 @@
   }
 
   .wrapper__slider {
+    position: absolute;
+
     video {
       min-height: calc(100vh - 79px);
     }
