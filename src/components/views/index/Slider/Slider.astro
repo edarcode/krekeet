@@ -75,10 +75,18 @@
 <style>
   .wrapper__slider {
     position: absolute;
+    top: 0;
+    left: 0;
+
+    .track {
+      border-radius: var(--br);
+      @media (max-width: 768px) {
+        border-radius: 0;
+      }
+    }
 
     video {
-      min-height: calc(100vh);
-      border-radius: var(--br);
+      height: calc(100vh - 79px);
     }
   }
 

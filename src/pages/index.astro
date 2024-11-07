@@ -4,16 +4,32 @@ import Layout from "../layouts/Layout/Layout.astro";
 ---
 
 <Layout title="edarcode">
-  <Slider />
-  <p class="p">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque similique
-    natus minima consequuntur laudantium, saepe corporis, recusandae ipsa vitae
-    ab eos quidem quod nostrum ducimus ullam provident libero, sequi alias?
-  </p>
+  <div class="index">
+    <Slider />
+    <p class="p">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque similique
+      natus minima consequuntur laudantium, saepe corporis, recusandae ipsa
+      vitae ab eos quidem quod nostrum ducimus ullam provident libero, sequi
+      alias?
+    </p>
+  </div>
 </Layout>
 
 <style>
-  .p {
-    width: 40px;
+  .index {
+    max-width: var(--mw-layout);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    display: grid;
+    gap: var(--xl);
+
+    position: relative;
+
+    .p {
+      padding: 5px;
+      width: 40px;
+    }
   }
 </style>
