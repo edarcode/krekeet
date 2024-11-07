@@ -5,6 +5,8 @@ import GoToPage from "../../../../components/hyperlinks/GoToPage/GoToPage.astro"
 import Logo from "../../../../components/logos/Logo/Logo.astro";
 import Network from "../../../../components/navs/Network/Network.astro";
 import { PAGES } from "../../../../pages/pages";
+import cross from "./cross.svg";
+import lines from "./lines.svg";
 
 interface Props extends HTMLAttributes<"nav"> {
   cls?: string;
@@ -17,39 +19,121 @@ const { about, contact, index, perspective, products, work } = PAGES;
 
 <nav class:list={["nav", cls]}>
   <GoToPage href={index.path}><Logo /></GoToPage>
-  <div class="wrapper1">
-    <GoToPage href={about.path}>{about.display}</GoToPage>
-    <GoToPage href={work.path}>{work.display}</GoToPage>
-    <GoToPage href={products.path}>{products.display}</GoToPage>
-    <GoToPage href={perspective.path}>{perspective.display}</GoToPage>
+  <div id="navWrapper" class="wrapper">
+    <div class="wrapper1">
+      <GoToPage href={about.path}>{about.display}</GoToPage>
+      <GoToPage href={work.path}>{work.display}</GoToPage>
+      <GoToPage href={products.path}>{products.display}</GoToPage>
+      <GoToPage href={perspective.path}>{perspective.display}</GoToPage>
+    </div>
+    <div class="wrapper2">
+      <Network />
+      <GoToPage href={contact.path}><Btn>{contact.display}</Btn></GoToPage>
+    </div>
   </div>
-  <div class="wrapper2">
-    <Network />
-    <GoToPage href={contact.path}><Btn>{contact.display}</Btn></GoToPage>
-  </div>
+  <picture id="menu" class="menu">
+    <img src={lines.src} alt="menu" />
+  </picture>
 </nav>
+
+<script>
+  const wrapper = document.querySelector("#navWrapper") as HTMLElement;
+  const menu = document.querySelector("#menu") as HTMLElement;
+
+  menu.addEventListener("click", () => {
+    wrapper.classList.toggle("open");
+  });
+</script>
 
 <style>
   .nav {
-    border: var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     max-width: var(--mw-layout);
     padding: var(--lg);
     margin-left: auto;
     margin-right: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
 
-    .wrapper1 {
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      gap: var(--xl2);
+    .menu {
+      display: none;
     }
 
-    .wrapper2 {
+    .wrapper {
       display: flex;
-      gap: var(--lg);
+      align-items: center;
+
+      .wrapper1 {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        gap: var(--xl2);
+      }
+
+      .wrapper2 {
+        display: flex;
+        gap: var(--lg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: inline-block;
+        width: 40px;
+        margin-left: auto;
+      }
+
+      .wrapper {
+        background-color: var(--bg-main);
+        width: 100%;
+        padding: var(--xl);
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        transition:
+          transform 1s,
+          opacity 0.3s;
+        transform: translateY(-1000px);
+        opacity: 0;
+
+        display: grid;
+        gap: var(--xl2);
+
+        .wrapper1,
+        .wrapper2 {
+          display: grid;
+        }
+
+        .wrapper1 {
+          margin: initial;
+          gap: var(--lg);
+
+          a {
+            padding: var(--lg);
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              border: 1px solid var(--primary);
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
+          }
+        }
+
+        .wrapper2 {
+          justify-self: center;
+        }
+      }
+
+      .open {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
 </style>
