@@ -29,6 +29,13 @@ const { title } = Astro.props;
   </body>
 </html>
 
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
+  AOS.init();
+</script>
+
 <style>
   :root {
     --b: 1px solid red;
@@ -36,6 +43,9 @@ const { title } = Astro.props;
   }
 
   body {
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
+
     display: grid;
     grid-template-rows: auto 1fr auto;
 

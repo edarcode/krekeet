@@ -1,0 +1,108 @@
+<div class="wrapper__slider">
+  <section
+    id="slider"
+    class="splide slider"
+    aria-label="Splide Basic HTML Example"
+  >
+    <div class="splide__track track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <video
+            autoplay
+            loop
+            muted
+            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730864878/krekeet/tk8k29vzigixxwmamcah.mp4"
+          ></video>
+        </li>
+        <li class="splide__slide">
+          <video
+            autoplay
+            loop
+            muted
+            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759652/krekeet/bmuljzcvs7p4z5txjxeo.mp4"
+          ></video>
+        </li>
+        <li class="splide__slide">
+          <video
+            autoplay
+            loop
+            muted
+            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759648/krekeet/bzvmispmrwxvf3jzlyuh.mp4"
+          ></video>
+        </li>
+        <li class="splide__slide">
+          <video
+            autoplay
+            loop
+            muted
+            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759650/krekeet/fh4srybax9hvkhe0i6s3.mp4"
+          ></video>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+  import "@splidejs/splide/css/core";
+  import Splide from "@splidejs/splide";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const splide = new Splide(".splide", {
+      arrows: false,
+      pagination: false,
+      wheel: true,
+      wheelSleep: 600,
+      releaseWheel: true,
+      speed: 1500,
+    });
+
+    splide.mount();
+
+    let isSliderDone = false;
+
+    splide.on("moved", (index) => {
+      if (index === 3) isSliderDone = true;
+    });
+
+    document.addEventListener("scroll", () => {
+      if (isSliderDone) {
+        isSliderDone = false;
+        const slider = document.querySelector("#slider");
+
+        if (slider) {
+          // Agregar la clase que activa la animación
+          slider.classList.add("fade-out");
+
+          // Esperar el tiempo de duración de la animación antes de eliminar el elemento
+          slider.addEventListener("animationend", () => {
+            slider.remove();
+          });
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-500px);
+    }
+  }
+
+  .fade-out {
+    animation: fadeOut 1s forwards; /* 0.5 segundos para la animación */
+  }
+
+  .wrapper__slider {
+    video {
+      min-height: calc(100vh - 79px);
+    }
+  }
+</style>
