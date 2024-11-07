@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<"nav"> {
 const { cls, ...extraProps } = Astro.props;
 ---
 
-<nav class:list={[cls]} {...extraProps}>
+<nav class:list={["network", cls]} {...extraProps}>
   {
     NETWORKS.map(({ url, icon, display }) => (
       <GoToExternalPage title={display} href={url}>
@@ -21,9 +21,10 @@ const { cls, ...extraProps } = Astro.props;
 </nav>
 
 <style>
-  nav {
+  .network {
     display: flex;
     align-items: center;
+    gap: var(--md);
 
     a {
       img {

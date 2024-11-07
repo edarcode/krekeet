@@ -1,28 +1,55 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import Btn from "../../../../components/buttons/Btn/Btn.astro";
 import GoToPage from "../../../../components/hyperlinks/GoToPage/GoToPage.astro";
 import Logo from "../../../../components/logos/Logo/Logo.astro";
 import Network from "../../../../components/navs/Network/Network.astro";
 import { PAGES } from "../../../../pages/pages";
 
+interface Props extends HTMLAttributes<"nav"> {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
+
 const { about, contact, index, perspective, products, work } = PAGES;
 ---
 
-<nav>
+<nav class:list={["nav", cls]}>
   <GoToPage href={index.path}><Logo /></GoToPage>
-  <div>
+  <div class="wrapper1">
     <GoToPage href={about.path}>{about.display}</GoToPage>
     <GoToPage href={work.path}>{work.display}</GoToPage>
     <GoToPage href={products.path}>{products.display}</GoToPage>
     <GoToPage href={perspective.path}>{perspective.display}</GoToPage>
   </div>
-  <div>
+  <div class="wrapper2">
     <Network />
     <GoToPage href={contact.path}><Btn>{contact.display}</Btn></GoToPage>
   </div>
 </nav>
 
 <style>
-  nav {
+  .nav {
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--mw-layout);
+    padding: var(--lg);
+    margin-left: auto;
+    margin-right: auto;
+
+    .wrapper1 {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      gap: var(--xl2);
+    }
+
+    .wrapper2 {
+      display: flex;
+      gap: var(--lg);
+    }
   }
 </style>
