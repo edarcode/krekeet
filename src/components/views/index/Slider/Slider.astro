@@ -53,7 +53,7 @@
       arrows: false,
       pagination: false,
       wheel: true,
-      wheelSleep: 600,
+      wheelSleep: 1000,
       releaseWheel: true,
       speed: 1500,
     });
@@ -73,6 +73,15 @@
 </script>
 
 <style>
+  .wrapper__slider {
+    position: absolute;
+
+    video {
+      min-height: calc(100vh);
+      border-radius: var(--br);
+    }
+  }
+
   @keyframes fadeOut {
     0% {
       opacity: 1;
@@ -80,20 +89,11 @@
     }
     100% {
       opacity: 0;
-      transform: translateY(-500px);
+      transform: translateY(-400px);
     }
   }
 
   .fade-out {
     animation: fadeOut 1s forwards; /* 0.5 segundos para la animación */
-  }
-
-  .wrapper__slider {
-    position: absolute;
-    z-index: 10;
-
-    video {
-      min-height: calc(100vh);
-    }
   }
 </style>
