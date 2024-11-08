@@ -54,7 +54,11 @@ import our_services from "./our_services.png";
         justify-self: end;
         width: 643px;
         height: 601px;
-        border-radius: 23px;
+        border-radius: var(--br);
+
+        img {
+          border-radius: var(--br);
+        }
 
         @media (max-width: 768px) {
           justify-self: center;
