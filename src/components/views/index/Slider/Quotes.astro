@@ -3,14 +3,14 @@ import Logo from "../../../logos/Logo/Logo.astro";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 ---
 
-<div>
-  <Logo />
+<div class="quotes">
+  <Logo cls="logo" />
   <h1>Trazamos el <Fancy>Camino</Fancy></h1>
-  <h5>Entre <Fancy>Usuarios</Fancy> con <Fancy>Marca</Fancy></h5>
+  <h2>Entre <Fancy>Usuarios</Fancy> con <Fancy>Marca</Fancy></h2>
 </div>
 
 <style>
-  div {
+  .quotes {
     pointer-events: none;
     position: absolute;
     top: 50%;
@@ -21,5 +21,31 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 
     display: grid;
     gap: var(--xl);
+
+    @media (max-width: 768px) {
+      max-width: 306px;
+    }
+
+    .logo {
+      @media (max-width: 768px) {
+        justify-self: center;
+        margin-bottom: 250px;
+      }
+    }
+
+    h1 {
+      font-size: 116px;
+      @media (max-width: 768px) {
+        font-size: 40px;
+        line-height: 41px;
+      }
+    }
+
+    h2 {
+      font-size: 41px;
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
   }
 </style>
