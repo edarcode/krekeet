@@ -30,6 +30,28 @@ const { title } = Astro.props;
   </body>
 </html>
 
+<script>
+  import ScrollReveal from "scrollreveal";
+
+  ScrollReveal().reveal(".left-ani", {
+    distance: "1000px",
+    origin: "left",
+    opacity: 0,
+    viewFactor: 0.3,
+    duration: 700,
+    reset: true, // Hace que la animación se repita cada vez que el elemento entra en el viewport
+  });
+
+  ScrollReveal().reveal(".right-ani", {
+    distance: "1000px",
+    origin: "right",
+    opacity: 0,
+    viewFactor: 0.3,
+    duration: 700,
+    reset: true, // Hace que la animación se repita cada vez que el elemento entra en el viewport
+  });
+</script>
+
 <style>
   :root {
     --b: 1px solid red;
