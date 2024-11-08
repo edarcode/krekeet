@@ -1,0 +1,25 @@
+---
+import Logo from "../../../logos/Logo/Logo.astro";
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+---
+
+<div>
+  <Logo />
+  <h1>Trazamos el <Fancy>Camino</Fancy></h1>
+  <h5>Entre <Fancy>Usuarios</Fancy> con <Fancy>Marca</Fancy></h5>
+</div>
+
+<style>
+  div {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: var(--xl);
+    max-width: 695px;
+    z-index: 10;
+
+    display: grid;
+    gap: var(--xl);
+  }
+</style>
