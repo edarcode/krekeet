@@ -1,0 +1,73 @@
+/* Animaciones de entrada */
+
+/* Entrada desde arriba */
+.fade-in-top {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.98);
+  animation: fadeInTop 0.8s ease forwards;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Entrada desde abajo */
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  animation: fadeInBottom 0.8s ease forwards;
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Entrada desde la izquierda */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px) scale(0.98);
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Entrada desde la derecha */
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px) scale(0.98);
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
