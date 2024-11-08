@@ -4,7 +4,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 import arrow_right from "./arrow_right.svg";
 ---
 
-<section>
+<section class="weare">
   <a class="info right-ani-weare"
     >Más Información <img src={arrow_right.src} alt="flecha a la derecha" /></a
   >
@@ -27,7 +27,7 @@ import arrow_right from "./arrow_right.svg";
   import ScrollReveal from "scrollreveal";
 
   ScrollReveal().reveal(".center-ani-weare", {
-    viewFactor: 1,
+    viewFactor: 0.8,
     opacity: 0,
     duration: 1000,
     delay: 300,
@@ -38,7 +38,7 @@ import arrow_right from "./arrow_right.svg";
     distance: "999px",
     origin: "left",
     opacity: 0,
-    viewFactor: 1,
+    viewFactor: 0.8,
     duration: 500,
     reset: true,
   });
@@ -47,14 +47,14 @@ import arrow_right from "./arrow_right.svg";
     distance: "999px",
     origin: "right",
     opacity: 0,
-    viewFactor: 1,
+    viewFactor: 0.8,
     duration: 500,
     reset: true,
   });
 </script>
 
 <style>
-  section {
+  .weare {
     padding: var(--md);
     margin: var(--xl3) var(--xl);
     border-radius: 30px;

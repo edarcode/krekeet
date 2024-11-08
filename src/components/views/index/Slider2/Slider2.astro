@@ -1,0 +1,143 @@
+---
+import emociones from "./emociones.avif";
+import conectamos from "./conectamos.avif";
+import estructuramos from "./estructuramos.avif";
+import idea from "./idea.avif";
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+---
+
+<section class="wrapperSlider2">
+  <div class="splide slider2" role="group" aria-label="carrusel 2">
+    <div class="splide__track track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <div class="card">
+            <picture>
+              <img src={emociones.src} alt="en el negocio de las emociones" />
+            </picture>
+            <div class="content">
+              <h6>En el negocio de<br /><Fancy>las emociones</Fancy></h6>
+              <p>
+                Todos nuestros logros están enfocados en una cultura en la cual
+                centramos talento y sus habilidades en un propósito.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="splide__slide">
+          <div class="card">
+            <picture>
+              <img src={conectamos.src} alt="no vendemos, conectamos" />
+            </picture>
+            <div class="content">
+              <h6>No vendemos<br /><Fancy>Conectamos</Fancy></h6>
+              <p>
+                Logrando ganar el juego conectando necesidades y deseo con un
+                producto.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="splide__slide">
+          <div class="card">
+            <picture>
+              <img src={idea.src} alt="tu idea es nuestra" />
+            </picture>
+            <div class="content">
+              <h6>Tu idea<br /><Fancy>Es la nuestra</Fancy></h6>
+              <p>
+                Creemos en la creatividad colectiva, en la cual todo proceso
+                debe ser mejorado, sin un limite en nuestra capacidad.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="splide__slide">
+          <div class="card">
+            <picture>
+              <img src={estructuramos.src} alt="estructuramos y fomentamos" />
+            </picture>
+            <div class="content">
+              <h6>Restructuramos<br /><Fancy>y Fomentamos</Fancy></h6>
+              <p>
+                Formamos estrategias estructuradas para lograr relaciones
+                fuertes y duraderas con nuestros clientes.
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "@splidejs/splide/css/core";
+  import Splide from "@splidejs/splide";
+
+  const splide = new Splide(".slider2", {
+    type: "slide",
+    drag: "free",
+    perPage: 2,
+    pagination: false,
+    arrows: false,
+    gap: 5,
+    padding: { left: 32, right: 32 },
+    breakpoints: {
+      1024: {
+        perPage: 1,
+      },
+    },
+  });
+
+  splide.mount();
+</script>
+
+<style>
+  .wrapperSlider2 {
+    margin: var(--xl3) 0;
+
+    display: grid;
+    place-content: center;
+
+    .slider2 {
+      .track {
+        .card {
+          display: grid;
+          gap: var(--lg);
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          align-items: start;
+          width: 100%;
+          height: 100%;
+
+          picture {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--br);
+
+            img {
+              border-radius: var(--br);
+            }
+          }
+
+          .content {
+            padding-top: var(--xl);
+            display: grid;
+            gap: var(--md);
+            h6 {
+              font-size: 34px;
+            }
+            p {
+              font-size: 20px;
+              text-align: justify;
+              max-width: 299px;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
