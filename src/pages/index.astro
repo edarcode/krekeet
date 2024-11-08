@@ -1,4 +1,5 @@
 ---
+import Clients from "../components/views/index/Clients/Clients.astro";
 import Slider from "../components/views/index/Slider/Slider.astro";
 import Layout from "../layouts/Layout/Layout.astro";
 ---
@@ -6,12 +7,7 @@ import Layout from "../layouts/Layout/Layout.astro";
 <Layout title="edarcode">
   <div class="index">
     <Slider />
-    <p class="p">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque similique
-      natus minima consequuntur laudantium, saepe corporis, recusandae ipsa
-      vitae ab eos quidem quod nostrum ducimus ullam provident libero, sequi
-      alias?
-    </p>
+    <Clients />
   </div>
 </Layout>
 
@@ -26,10 +22,5 @@ import Layout from "../layouts/Layout/Layout.astro";
     gap: var(--xl);
 
     position: relative;
-
-    .p {
-      padding: 5px;
-      width: 40px;
-    }
   }
 </style>
