@@ -1,0 +1,56 @@
+---
+import "../../styles/reset.css";
+import "../../styles/colors.css";
+import "../../styles/scales.css";
+import "../../styles/fonts.css";
+import Header from "./Header/Header.astro";
+import Footer from "./Footer/Footer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
+  AOS.init();
+</script>
+
+<style>
+  :root {
+    --b: 1px solid red;
+    --mw-layout: 1600px;
+    --br: 18px;
+  }
+
+  body {
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    background-color: var(--bg-main);
+    color: var(--paras);
+  }
+</style>

@@ -3,15 +3,26 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
   cls?: string;
+  kind?: "isActive" | "isActive2";
 }
 
 const { href, ...extraProps } = Astro.props;
-const { href: currentRoute } = Astro.url;
-const { cls } = Astro.props;
+const { pathname: currentRoute } = Astro.url;
+const { cls, kind = "isActive" } = Astro.props;
 const isActive = currentRoute === href;
 ---
 
-<a class:list={[cls, { isActive }]} {...extraProps} href={href}>
+<a
+  class:list={[
+    cls,
+    {
+      isActive: kind == "isActive" && isActive,
+      isActive2: kind == "isActive2" && isActive,
+    },
+  ]}
+  {...extraProps}
+  href={href}
+>
   <slot />
 </a>
 
@@ -23,13 +34,11 @@ const isActive = currentRoute === href;
     white-space: nowrap; /* Evita que el texto haga varias líneas */
     overflow: hidden; /* Oculta el texto que se desborda */
     text-overflow: ellipsis; /* Muestra los "..." cuando el texto se corta */
-
-    &:hover {
-      color: var(--primary);
-    }
   }
 
   .isActive {
-    color: var(--primary);
+  }
+
+  .isActive2 {
   }
 </style>
