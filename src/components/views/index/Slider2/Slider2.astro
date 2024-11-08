@@ -84,14 +84,11 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     perPage: 2,
     pagination: false,
     arrows: false,
-    gap: 5,
+    gap: 32,
     wheel: true,
+    releaseWheel: true,
     padding: { left: 32, right: 32 },
-    breakpoints: {
-      1024: {
-        perPage: 1,
-      },
-    },
+    breakpoints: { 768: { perPage: 1 } },
   });
 
   splide.mount();
@@ -99,24 +96,28 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 
 <style>
   .wrapperSlider2 {
-    margin: var(--xl3) 0;
-
     display: grid;
     place-content: center;
+    margin: var(--xl3) var(--xl);
 
     .slider2 {
       .track {
         .card {
           display: grid;
-          gap: var(--lg);
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          grid-template-columns: 1fr 1fr;
           align-items: start;
+
           width: 100%;
           height: 100%;
+
+          @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+          }
 
           picture {
             width: 100%;
             height: 100%;
+
             border-radius: var(--br);
 
             img {
@@ -125,16 +126,23 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
           }
 
           .content {
-            padding-top: var(--xl);
             display: grid;
             gap: var(--md);
+            padding: var(--xl) var(--lg) var(--lg) var(--lg);
+
             h6 {
               font-size: 34px;
+              @media (max-width: 768px) {
+                font-size: 29px;
+              }
             }
             p {
               font-size: 20px;
               text-align: justify;
-              max-width: 299px;
+
+              @media (max-width: 768px) {
+                font-size: 14px;
+              }
             }
           }
         }
