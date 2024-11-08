@@ -5,18 +5,18 @@ import arrow_right from "./arrow_right.svg";
 ---
 
 <section>
-  <a class="info bottom-ani-we-are"
+  <a class="info right-ani-weare"
     >Más Información <img src={arrow_right.src} alt="flecha a la derecha" /></a
   >
   <div class="titles">
-    <h3 class="bottom-ani">Somos <Fancy>Diferentes</Fancy></h3>
-    <h4 class="center-ani-we-are">¿Cómo? ¿Por qué?</h4>
+    <h3 class="left-ani-weare">Somos <Fancy>Diferentes</Fancy></h3>
+    <h4 class="center-ani-weare">¿Cómo? ¿Por qué?</h4>
   </div>
-  <p class="center-ani-we-are">
+  <p class="center-ani-weare">
     Somos versátiles, intuitivos y creativos, pero no somos una agencia.
     Diseñamos, desarrollamos y creamos
   </p>
-  <div class="btns bottom-ani">
+  <div class="btns left-ani-weare">
     <Btn>Software</Btn>
     <Btn>Estrategias</Btn>
     <Btn>Material</Btn>
@@ -26,7 +26,7 @@ import arrow_right from "./arrow_right.svg";
 <script>
   import ScrollReveal from "scrollreveal";
 
-  ScrollReveal().reveal(".center-ani-we-are", {
+  ScrollReveal().reveal(".center-ani-weare", {
     viewFactor: 1,
     opacity: 0,
     duration: 1000,
@@ -34,9 +34,18 @@ import arrow_right from "./arrow_right.svg";
     reset: true,
   });
 
-  ScrollReveal().reveal(".bottom-ani-we-are", {
+  ScrollReveal().reveal(".left-ani-weare", {
     distance: "999px",
-    origin: "bottom",
+    origin: "left",
+    opacity: 0,
+    viewFactor: 1,
+    duration: 500,
+    reset: true,
+  });
+
+  ScrollReveal().reveal(".right-ani-weare", {
+    distance: "999px",
+    origin: "right",
     opacity: 0,
     viewFactor: 1,
     duration: 500,
