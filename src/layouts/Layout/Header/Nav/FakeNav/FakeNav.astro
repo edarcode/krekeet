@@ -18,7 +18,7 @@ const { about, contact, index, perspective, products, work } = PAGES;
 
 <nav id="fakeNav" class:list={["fakeNav", cls]}>
   <GoToPage href={index.path}><Logo /></GoToPage>
-  <div id="navWrapper" class="wrapper">
+  <div id="fakeNavWrapper" class="wrapper">
     <div class="wrapper1">
       <GoToPage href={about.path}>{about.display}</GoToPage>
       <GoToPage href={work.path}>{work.display}</GoToPage>
@@ -30,8 +30,8 @@ const { about, contact, index, perspective, products, work } = PAGES;
       <GoToPage href={contact.path}><Btn>{contact.display}</Btn></GoToPage>
     </div>
   </div>
-  <picture id="menu" class="menu">
-    <img id="menuImg" src={lines.src} alt="menu" />
+  <picture id="fakeMenu" class="menu">
+    <img id="fakeMenuImg" src={lines.src} alt="menu" />
   </picture>
 </nav>
 
@@ -39,9 +39,9 @@ const { about, contact, index, perspective, products, work } = PAGES;
   import cross from "./cross.svg";
   import lines from "./lines.svg";
 
-  const wrapper = document.querySelector("#navWrapper") as HTMLElement;
-  const menu = document.querySelector("#menu") as HTMLElement;
-  const menuImg = document.querySelector("#menuImg") as HTMLElement;
+  const wrapper = document.querySelector("#fakeNavWrapper") as HTMLElement;
+  const menu = document.querySelector("#fakeMenu") as HTMLElement;
+  const menuImg = document.querySelector("#fakeMenuImg") as HTMLElement;
 
   menu.addEventListener("click", () => {
     const currentSrc = menuImg.getAttribute("src");
@@ -68,7 +68,7 @@ const { about, contact, index, perspective, products, work } = PAGES;
     border-radius: var(--br);
 
     background-color: var(--primary);
-    transform: translateY(1500px);
+    transform: translateY(1000px);
     opacity: 0;
     width: 100%;
     transition: all 1s ease;
