@@ -1,4 +1,14 @@
-<span>
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"span"> {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
+---
+
+<span class:list={[cls]}>
   <slot />
 </span>
 

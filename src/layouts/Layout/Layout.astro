@@ -48,7 +48,36 @@ const { title } = Astro.props;
     opacity: 0,
     viewFactor: 0.3,
     duration: 700,
-    reset: true, // Hace que la animación se repita cada vez que el elemento entra en el viewport
+    reset: true,
+  });
+
+  ScrollReveal().reveal(".top-ani", {
+    distance: "1000px",
+    origin: "top",
+    opacity: 0,
+    viewFactor: 0.3,
+    duration: 700,
+    reset: true,
+  });
+
+  ScrollReveal().reveal(".top-ani-d2", {
+    distance: "1000px",
+    origin: "top",
+    opacity: 0,
+    viewFactor: 0.3,
+    duration: 700,
+    reset: true,
+    delay: 800,
+  });
+
+  ScrollReveal().reveal(".top-ani-d3", {
+    distance: "1000px",
+    origin: "top",
+    opacity: 0,
+    viewFactor: 0.3,
+    duration: 700,
+    reset: true,
+    delay: 1600,
   });
 </script>
 
