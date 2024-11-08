@@ -5,8 +5,8 @@ import our_services from "./our_services.png";
 
 <article class="our">
   <div class="wrapper1">
-    <h3 class="left-ani">Nuestros<br /><Fancy>Servicios</Fancy></h3>
-    <picture class="right-ani">
+    <h3>Nuestros<br /><Fancy>Servicios</Fancy></h3>
+    <picture>
       <img src={our_services.src} alt="nuestros servicios" />
     </picture>
   </div>
@@ -16,19 +16,48 @@ import our_services from "./our_services.png";
 
 <style>
   .our {
+    padding: var(--xl);
+
     .wrapper1 {
       display: grid;
-      grid-template-columns: 1fr 40%;
+      grid-template-columns: repeat(2, 1fr);
       justify-items: start;
+      gap: var(--xl);
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
 
       h3 {
         font-size: 116px;
         line-height: 119px;
         text-align: end;
 
+        @media (max-width: 768px) {
+          font-size: 59px;
+          line-height: 62px;
+        }
+
         span {
           font-size: 66px;
           line-height: 119px;
+          @media (max-width: 768px) {
+            font-size: 35px;
+            line-height: 62px;
+          }
+        }
+      }
+
+      picture {
+        justify-self: end;
+        max-width: 643px;
+        max-height: 601px;
+
+        @media (max-width: 768px) {
+          justify-self: center;
+          max-width: 323px;
+          max-height: 386px;
         }
       }
     }
