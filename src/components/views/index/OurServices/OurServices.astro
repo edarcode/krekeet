@@ -5,9 +5,9 @@ import our_services from "./our_services.png";
 
 <article class="our">
   <div class="wrapper1">
-    <h3>Nuestros<br /><Fancy>Servicios</Fancy></h3>
+    <h3 class="left-ani">Nuestros<br /><Fancy>Servicios</Fancy></h3>
     <picture>
-      <img src={our_services.src} alt="nuestros servicios" />
+      <img class="right-ani" src={our_services.src} alt="nuestros servicios" />
     </picture>
   </div>
 </article>
@@ -17,6 +17,7 @@ import our_services from "./our_services.png";
 <style>
   .our {
     padding: var(--xl);
+    aspect-ratio: 2 / 1;
 
     .wrapper1 {
       display: grid;
@@ -51,13 +52,14 @@ import our_services from "./our_services.png";
 
       picture {
         justify-self: end;
-        max-width: 643px;
-        max-height: 601px;
+        width: 643px;
+        height: 601px;
+        border-radius: 23px;
 
         @media (max-width: 768px) {
           justify-self: center;
-          max-width: 323px;
-          max-height: 386px;
+          width: 323px;
+          height: 386px;
         }
       }
     }

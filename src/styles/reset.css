@@ -37,6 +37,10 @@ svg {
   object-fit: cover;
 }
 
+picture {
+  overflow: hidden;
+}
+
 input,
 button,
 textarea,
