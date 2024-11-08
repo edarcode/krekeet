@@ -35,20 +35,3 @@ ScrollReveal().reveal(".bottom-ani", {
   duration: 500,
   reset: true,
 });
-
-ScrollReveal().reveal(".bottom-ani-footer", {
-  distance: "999px",
-  viewFactor: 0.3,
-  origin: "bottom",
-  opacity: 0,
-  duration: 700,
-  reset: true,
-});
-
-ScrollReveal().reveal(".center-ani", {
-  viewFactor: 0.3,
-  opacity: 0,
-  duration: 1000,
-  delay: 300,
-  reset: true,
-});

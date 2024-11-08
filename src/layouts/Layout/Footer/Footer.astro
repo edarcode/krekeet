@@ -35,7 +35,18 @@ import Fancy from "../../../components/spans/Fancy/Fancy.astro";
   </div>
 </footer>
 
-<script></script>
+<script>
+  import ScrollReveal from "scrollreveal";
+
+  ScrollReveal().reveal(".bottom-ani-footer", {
+    distance: "999px",
+    viewFactor: 0.3,
+    origin: "bottom",
+    opacity: 0,
+    duration: 700,
+    reset: true,
+  });
+</script>
 
 <style>
   footer {
