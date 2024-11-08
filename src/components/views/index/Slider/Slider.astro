@@ -71,6 +71,7 @@
 
     const removeSlider = () => {
       const slider = document.querySelector("#slider") as HTMLElement;
+      if (!slider) return;
       slider.classList.add("fade-out");
 
       slider.addEventListener("animationend", () => {
