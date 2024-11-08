@@ -71,7 +71,9 @@ const { about, contact, index, perspective, products, work } = PAGES;
     transform: translateY(1000px);
     opacity: 0;
     width: 100%;
-    transition: all 1s ease;
+    transition:
+      transform 1s ease-out,
+      opacity 1s ease-out;
     position: absolute;
     top: 0;
 
