@@ -1,0 +1,108 @@
+---
+import Btn from "../../../buttons/Btn/Btn.astro";
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+import arrow_right from "./arrow_right.svg";
+---
+
+<section>
+  <a class="info"
+    >Más Información <img src={arrow_right.src} alt="flecha a la derecha" /></a
+  >
+  <div class="titles">
+    <h3>Somos <Fancy>Diferentes</Fancy></h3>
+    <h4>¿Cómo? ¿Por qué?</h4>
+  </div>
+  <p>
+    Somos versátiles, intuitivos y creativos, pero no somos una agencia.
+    Diseñamos, desarrollamos y creamos
+  </p>
+  <div class="btns" data-aos-duration="500">
+    <Btn>Software</Btn>
+    <Btn>Estrategias</Btn>
+    <Btn>Material</Btn>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: var(--md);
+    margin: var(--xl3) 0;
+    border-radius: 30px;
+    background-image: url(./somos_diferentes.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    gap: var(--lg);
+    font-size: 30px;
+    transform: scale(0.9);
+
+    @media (max-width: 768px) {
+      margin: var(--xl) 0;
+    }
+
+    p {
+      max-width: 979px;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    .titles {
+      text-align: center;
+      h3 {
+        font-size: 55px;
+        @media (max-width: 768px) {
+          font-size: 32px;
+        }
+      }
+      h4 {
+        font-size: 34px;
+        @media (max-width: 768px) {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .info {
+      justify-self: end;
+      border: 2px solid currentColor;
+      border-radius: 52px;
+      padding: var(--md) var(--xl);
+      display: flex;
+      align-items: center;
+      gap: var(--lg);
+      font-size: 22px;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--xl);
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
+      button {
+        min-width: 295px;
+        @media (max-width: 768px) {
+          min-width: 206px;
+        }
+      }
+    }
+  }
+</style>

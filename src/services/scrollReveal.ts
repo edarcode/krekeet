@@ -41,6 +41,6 @@ ScrollReveal().reveal(".bottom-ani-footer", {
   viewFactor: 0.3,
   origin: "bottom",
   opacity: 0,
-  duration: 1000,
+  duration: 700,
   reset: true,
 });
