@@ -1,3 +1,7 @@
+---
+import { VIDEOS } from "./videos";
+---
+
 <div class="wrapper__slider">
   <section
     id="slider"
@@ -6,39 +10,13 @@
   >
     <div class="splide__track track">
       <ul class="splide__list">
-        <li class="splide__slide">
-          <video
-            autoplay
-            loop
-            muted
-            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730864878/krekeet/tk8k29vzigixxwmamcah.mp4"
-          ></video>
-        </li>
-        <li class="splide__slide">
-          <video
-            autoplay
-            loop
-            muted
-            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759652/krekeet/bmuljzcvs7p4z5txjxeo.mp4"
-          ></video>
-        </li>
-        <li class="splide__slide">
-          <video
-            autoplay
-            loop
-            muted
-            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759648/krekeet/bzvmispmrwxvf3jzlyuh.mp4"
-          ></video>
-        </li>
-        <li class="splide__slide">
-          <video
-            autoplay
-            loop
-            muted
-            src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730759650/krekeet/fh4srybax9hvkhe0i6s3.mp4"
-          ></video>
-        </li>
-        <li class="splide__slide"></li>
+        {
+          VIDEOS.map((video) => (
+            <li class="splide__slide">
+              <video autoplay loop muted src={video.url} />
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>

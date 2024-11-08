@@ -6,22 +6,22 @@ import youtube from "./icons/youtube.svg";
 export const NETWORKS = [
   {
     display: "tiktok",
-    url: "https://github.com/edarcode",
+    url: "https://www.tiktok.com/@krekeet_inc",
     icon: tiktok,
   },
   {
     display: "instagram",
-    url: "https://youtube.com/@edarcode8124?si=rdyoVhSE8RuFOy1r",
+    url: "https://www.instagram.com/krekeet/",
     icon: instagram,
   },
   {
     display: "linkedin",
-    url: "https://www.instagram.com/edarcode",
+    url: "https://www.linkedin.com/company/krekeet/about/",
     icon: linkedin,
   },
   {
     display: "youtube",
-    url: "https://www.linkedin.com/in/edarcode",
+    url: "https://www.youtube.com/@krekeet",
     icon: youtube,
   },
 ];
