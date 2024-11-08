@@ -44,3 +44,11 @@ ScrollReveal().reveal(".bottom-ani-footer", {
   duration: 700,
   reset: true,
 });
+
+ScrollReveal().reveal(".center-ani", {
+  viewFactor: 0.3,
+  opacity: 0,
+  duration: 1000,
+  delay: 300,
+  reset: true,
+});
