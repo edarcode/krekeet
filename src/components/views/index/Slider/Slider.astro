@@ -56,6 +56,7 @@
       wheelSleep: 1000,
       releaseWheel: true,
       speed: 1500,
+      drag: true,
     });
 
     splide.mount();
@@ -69,14 +70,22 @@
       });
     };
 
+    const animationFakeNav = () => {
+      const fakeNave = document.querySelector("#fakeNav") as HTMLElement;
+      fakeNave.style.transform = "translateY(0)";
+      fakeNave.style.opacity = "1";
+    };
+
     splide.on("move", (index) => {
       if (index !== 4) return;
       removeSlider();
+      animationFakeNav();
     });
 
     const rmSlider = () => {
-      removeSlider();
       window.removeEventListener("scroll", rmSlider);
+      removeSlider();
+      animationFakeNav();
     };
 
     window.addEventListener("scroll", rmSlider);

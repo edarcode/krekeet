@@ -1,12 +1,11 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import Btn from "../../../../components/buttons/Btn/Btn.astro";
-import GoToPage from "../../../../components/hyperlinks/GoToPage/GoToPage.astro";
-import Logo from "../../../../components/logos/Logo/Logo.astro";
-import Network from "../../../../components/navs/Network/Network.astro";
-import { PAGES } from "../../../../pages/pages";
 import lines from "./lines.svg";
-import FakeNav from "./FakeNav/FakeNav.astro";
+import GoToPage from "../../../../../components/hyperlinks/GoToPage/GoToPage.astro";
+import Logo from "../../../../../components/logos/Logo/Logo.astro";
+import { PAGES } from "../../../../../pages/pages";
+import Network from "../../../../../components/navs/Network/Network.astro";
+import Btn from "../../../../../components/buttons/Btn/Btn.astro";
 
 interface Props extends HTMLAttributes<"nav"> {
   cls?: string;
@@ -17,7 +16,7 @@ const { cls } = Astro.props;
 const { about, contact, index, perspective, products, work } = PAGES;
 ---
 
-<nav class:list={["nav", cls]}>
+<nav id="fakeNav" class:list={["fakeNav", cls]}>
   <GoToPage href={index.path}><Logo /></GoToPage>
   <div id="navWrapper" class="wrapper">
     <div class="wrapper1">
@@ -58,14 +57,23 @@ const { about, contact, index, perspective, products, work } = PAGES;
 </script>
 
 <style>
-  .nav {
-    position: relative;
+  .fakeNav {
+    pointer-events: none;
     max-width: var(--mw-layout);
     padding: var(--lg);
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: auto 1fr;
+    border-radius: var(--br);
+
+    background-color: var(--primary);
+    transform: translateY(1500px);
+    opacity: 0;
+    width: 100%;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
 
     .menu {
       display: none;
@@ -96,7 +104,6 @@ const { about, contact, index, perspective, products, work } = PAGES;
       }
 
       .wrapper {
-        background-color: var(--bg-main);
         width: 100%;
         padding: var(--xl);
 
