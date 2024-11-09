@@ -7,7 +7,12 @@ import SliderOurServices from "./SliderOurServices.astro";
   <div class="wrapper1">
     <SliderOurServices cls="ourSlider" />
     <picture>
-      <img class="right-ani" src={our_services.src} alt="nuestros servicios" />
+      <img
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        src={our_services.src}
+        alt="nuestros servicios"
+      />
     </picture>
   </div>
 </article>
