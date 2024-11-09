@@ -6,14 +6,14 @@ import nuestro_trabajo from "./nuestro_trabajo.avif";
 
 <section class="our-work">
   <picture class="picture">
-    <img class="right-ani" src={nuestro_trabajo.src} alt="nuestro trabajo" />
+    <img class="left-ani" src={nuestro_trabajo.src} alt="nuestro trabajo" />
   </picture>
 
   <div class="wrapper">
     <h2 class="top-ani">
       Nuestro <Fancy>Trabajo</Fancy>
     </h2>
-    <p class="left-ani">
+    <p class="right-ani">
       Desde nuestros inicios, fomentamos el crecimiento impulsado por
       experiencias, por resultados, por caminos de respeto y efectividad. Lo
       cual nos permite dar muestras de nuestra experiencia:
@@ -24,7 +24,6 @@ import nuestro_trabajo from "./nuestro_trabajo.avif";
 
 <style>
   .our-work {
-    overflow: hidden;
     display: grid;
     gap: var(--xl);
     grid-template-columns: 40% 1fr;
@@ -36,8 +35,11 @@ import nuestro_trabajo from "./nuestro_trabajo.avif";
     .picture {
       max-width: 643px;
       aspect-ratio: 643 / 601;
+      border-radius: var(--br);
+
       img {
         width: 100%;
+        border-radius: var(--br);
       }
     }
 

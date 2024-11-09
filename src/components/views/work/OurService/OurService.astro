@@ -4,11 +4,11 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 ---
 
 <section>
-  <h2 data-aos="fade-up"><Fancy>Nuestros</Fancy> Servicios</h2>
+  <h2 class="bottom-ani"><Fancy>Nuestros</Fancy> Servicios</h2>
   <ul>
     {
       SERVICES.map((item) => (
-        <li data-aos="fade-up">
+        <li class="bottom-ani">
           <h3>{item.title}</h3>
           <h4>{item.subTitle}</h4>
 
@@ -26,6 +26,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     display: grid;
     justify-items: center;
     gap: var(--xl);
+    margin-bottom: var(--xl3);
 
     h2 {
       font-size: 60px;
@@ -87,7 +88,10 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
         }
 
         picture {
+          border-radius: var(--br);
+          overflow: hidden;
           img {
+            border-radius: var(--br);
           }
         }
       }
