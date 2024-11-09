@@ -44,9 +44,6 @@ const { cls } = Astro.props;
         </li>
       </ul>
     </div>
-    <picture id="sliderOur__arrow" class="arrow">
-      <img src={next.src} alt="next" />
-    </picture>
   </section>
 </div>
 
@@ -54,16 +51,15 @@ const { cls } = Astro.props;
   import Splide from "@splidejs/splide";
 
   var splide = new Splide(".sliderOur", {
-    type: "loop",
+    type: "slide",
     arrows: false,
     pagination: false,
-    autoplay: true,
-    interval: 3000,
+    drag: true,
+    wheel: true,
+    releaseWheel: true,
+    wheelSleep: 1000,
   });
   splide.mount();
-
-  const arrow = document.querySelector("#sliderOur__arrow") as HTMLElement;
-  arrow.addEventListener("click", () => splide.go(">"));
 </script>
 
 <style>
@@ -72,19 +68,6 @@ const { cls } = Astro.props;
 
     .sliderOur {
       height: 100%;
-
-      .arrow {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 38px;
-        height: 38px;
-        cursor: pointer;
-
-        &:active {
-          transform: scale(0.9);
-        }
-      }
 
       .track {
         height: 100%;
