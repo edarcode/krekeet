@@ -1,0 +1,122 @@
+---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+
+interface Props {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
+---
+
+<div class:list={["wrapper", cls]}>
+  <section class="splide sliderOur" aria-label="carrusel nuestros servicios">
+    <div class="splide__track track">
+      <ul class="splide__list list">
+        <li class="splide__slide slide">
+          <div class="content">
+            <h3>
+              Nuestros<br /><Fancy>Servicios</Fancy>
+            </h3>
+          </div>
+        </li>
+        <li class="splide__slide">
+          <div class="content">
+            <h4>Servicios<br /><Fancy>Especializados</Fancy></h4>
+            <p>
+              Nuestros servicios de <Fancy>Diseño</Fancy>, <Fancy
+                >Estrategia</Fancy
+              >, <Fancy>Consultoría</Fancy> y <Fancy>Entrega</Fancy> complementan
+              y desarrollan las capacidades internas de nuestros clientes, cooperando
+              a ofrecer y destacar sus productos.
+            </p>
+          </div>
+        </li>
+        <li class="splide__slide">
+          <div class="content">
+            <h4>Servicios<br /><Fancy>Especializados</Fancy></h4>
+            <p>
+              Trabajamos en <Fancy>conexión</Fancy>
+              <Fancy>completa</Fancy> con nuestros clientes, logrando una experiencia
+              y resultados proyectados para superar las expectativas...
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+  import Splide from "@splidejs/splide";
+
+  var splide = new Splide(".sliderOur", {
+    type: "loop",
+    arrows: false,
+    pagination: false,
+    autoplay: true,
+    interval: 2500,
+  });
+  splide.mount();
+</script>
+
+<style>
+  .wrapper {
+    width: 100%;
+
+    .sliderOur {
+      height: 100%;
+
+      .track {
+        height: 100%;
+
+        .content {
+          height: 100%;
+          display: grid;
+          place-content: center;
+          gap: var(--xl);
+          padding: var(--xl);
+
+          h3 {
+            font-size: 116px;
+            line-height: 119px;
+            text-align: end;
+
+            @media (max-width: 768px) {
+              font-size: 55px;
+              line-height: normal;
+            }
+
+            span {
+              font-size: 66px;
+              line-height: 119px;
+
+              @media (max-width: 768px) {
+                font-size: 35px;
+                line-height: normal;
+              }
+            }
+          }
+
+          h4 {
+            font-size: 55px;
+            line-height: 63px;
+            @media (max-width: 768px) {
+              font-size: 30px;
+              line-height: 38px;
+            }
+          }
+
+          p {
+            font-size: 30px;
+            line-height: 46px;
+
+            @media (max-width: 768px) {
+              font-size: 14px;
+              line-height: 27px;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

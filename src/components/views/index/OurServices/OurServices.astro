@@ -1,11 +1,12 @@
 ---
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 import our_services from "./our_services.png";
+import SliderOurServices from "./SliderOurServices.astro";
 ---
 
 <article class="our">
   <div class="wrapper1">
-    <h3 class="left-ani">Nuestros<br /><Fancy>Servicios</Fancy></h3>
+    <SliderOurServices cls="ourSlider" />
     <picture>
       <img class="right-ani" src={our_services.src} alt="nuestros servicios" />
     </picture>
@@ -20,7 +21,7 @@ import our_services from "./our_services.png";
 
     .wrapper1 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr auto;
       justify-items: start;
       gap: var(--xl);
 
@@ -29,24 +30,7 @@ import our_services from "./our_services.png";
         justify-items: center;
       }
 
-      h3 {
-        font-size: 116px;
-        line-height: 119px;
-        text-align: end;
-
-        @media (max-width: 768px) {
-          font-size: 59px;
-          line-height: 62px;
-        }
-
-        span {
-          font-size: 66px;
-          line-height: 119px;
-          @media (max-width: 768px) {
-            font-size: 35px;
-            line-height: 62px;
-          }
-        }
+      .ourSlider {
       }
 
       picture {
