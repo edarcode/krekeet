@@ -6,19 +6,23 @@ import nuestro_trabajo from "./nuestro_trabajo.avif";
 
 <section class="our-work">
   <picture class="picture">
-    <img class="left-ani" src={nuestro_trabajo.src} alt="nuestro trabajo" />
+    <img
+      data-aos="fade-right"
+      src={nuestro_trabajo.src}
+      alt="nuestro trabajo"
+    />
   </picture>
 
   <div class="wrapper">
-    <h2 class="top-ani">
+    <h2 data-aos="fade-down">
       Nuestro <Fancy>Trabajo</Fancy>
     </h2>
-    <p class="right-ani">
+    <p data-aos="fade-left">
       Desde nuestros inicios, fomentamos el crecimiento impulsado por
       experiencias, por resultados, por caminos de respeto y efectividad. Lo
       cual nos permite dar muestras de nuestra experiencia:
     </p>
-    <Btn cls="bottom-ani">Más Información</Btn>
+    <Btn data-aos="fade-up">Más Información</Btn>
   </div>
 </section>
 
