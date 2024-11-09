@@ -1,8 +1,19 @@
 ---
+import Banner from "../components/views/contact/Banner/Banner.astro";
 import Layout2 from "../layouts/Layout2/Layout2.astro";
 import { PAGES } from "./pages";
 ---
 
 <Layout2 title={PAGES.contact.display}>
-  <h1>Contacto</h1>
+  <div class="contact">
+    <Banner />
+  </div>
 </Layout2>
+
+<style>
+  .contact {
+    max-width: var(--mw-layout);
+    width: 100%;
+    margin: var(--xl) auto;
+  }
+</style>

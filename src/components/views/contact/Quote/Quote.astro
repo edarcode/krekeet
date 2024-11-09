@@ -1,0 +1,33 @@
+---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+---
+
+<div class="quote">
+  <h1>Contáctanos</h1>
+  <h2>
+    Estás a un paso de lograr crecimiento Porcentuales Reales. <Fancy
+      >¡Garantizamos tu logro!</Fancy
+    >
+  </h2>
+</div>
+
+<style>
+  .quote {
+    padding: var(--xl);
+
+    h1 {
+      font-size: 89px;
+      line-height: 119px;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 48px;
+
+      @media (max-width: 768px) {
+        font-size: 21px;
+        line-height: 28px;
+      }
+    }
+  }
+</style>

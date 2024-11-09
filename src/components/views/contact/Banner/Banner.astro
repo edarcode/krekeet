@@ -1,0 +1,50 @@
+---
+import Form from "../Form/Form.astro";
+import Quote from "../Quote/Quote.astro";
+---
+
+<div class="wrapper_banner">
+  <video
+    autoplay
+    muted
+    loop
+    src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730697403/krekeet/jv05dyqjmt0ltzzyybda.mp4"
+  ></video>
+  <div class="wrapper1">
+    <Quote />
+    <Form />
+  </div>
+</div>
+
+<style>
+  .wrapper_banner {
+    position: relative;
+    max-width: 1600px;
+    width: 100%;
+    height: calc(100vh - var(--h-nav) - var(--xl));
+    aspect-ratio: 1600 / 974;
+
+    video {
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.6);
+      object-fit: cover;
+
+      border-radius: var(--br);
+
+      @media (max-width: 1600px) {
+        border-radius: 0;
+      }
+    }
+
+    .wrapper1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      place-content: center;
+    }
+  }
+</style>
