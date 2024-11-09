@@ -11,34 +11,34 @@ interface Props extends HTMLAttributes<"form"> {
 const { cls } = Astro.props;
 ---
 
-<form class:list={[cls]}>
+<form class:list={[cls]} id="contactForm">
   <label>
     <div>Nombre:</div>
-    <input type="text" />
+    <input type="text" name="name" />
   </label>
 
   <label>
     <div>Email:</div>
-    <input type="email" />
+    <input type="email" name="email" />
   </label>
 
   <label for="tel" class="wrapper_tel">
     <div>Número:</div>
     <div>
-      <select>
+      <select name="countryCode">
         {
           COUNTRY_CODE.map((code) => (
             <option value={code.value}>{code.display}</option>
           ))
         }
       </select>
-      <input id="tel" type="number" />
+      <input id="tel" type="number" name="tel" />
     </div>
   </label>
 
   <label class="wrapper_serv">
     <div>Servicio:</div>
-    <select name="" id="">
+    <select name="serv">
       {
         SERVICES.map((serv) => (
           <option value={serv.value}>{serv.display}</option>
@@ -49,11 +49,40 @@ const { cls } = Astro.props;
 
   <label class="wrapper_msg">
     <div>Mensaje:</div>
-    <textarea></textarea>
+    <textarea name="msg"></textarea>
   </label>
 
   <Btn>Enviar</Btn>
 </form>
+
+<script>
+  import { sendMail } from "../../../../service/sendMail";
+
+  const form = document.querySelector("#contactForm") as HTMLElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+    const form = new FormData(target);
+
+    const name = form.get("name");
+    const email = form.get("email");
+    const countryCode = form.get("countryCode");
+    const num = form.get("num");
+    const serv = form.get("serv");
+    const msg = form.get("msg");
+
+    // const allData = {
+    //   name,
+    //   email,
+    //   countryCode,
+    //   num,
+    //   serv,
+    //   msg,
+    // };
+
+    await sendMail(email as string, msg as string);
+  });
+</script>
 
 <style>
   input,
