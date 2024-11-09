@@ -1,13 +1,14 @@
 ---
+import Logo from "../../../logos/Logo/Logo.astro";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 ---
 
 <div class="quote">
-  <h1>Contáctanos</h1>
+  <h1><Logo cls="logo" />Contáctanos</h1>
   <h2>
-    Estás a un paso de lograr crecimiento Porcentuales Reales. <Fancy
-      >¡Garantizamos tu logro!</Fancy
-    >
+    <span class="sub_quote"
+      >Estás a un paso de lograr crecimiento Porcentuales Reales.</span
+    ><br /><Fancy>¡Garantizamos tu logro!</Fancy>
   </h2>
 </div>
 
@@ -18,6 +19,22 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     h1 {
       font-size: 89px;
       line-height: 119px;
+      display: flex;
+      align-items: center;
+
+      .logo {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 19px;
+        line-height: 29px;
+        margin-bottom: var(--xl);
+
+        .logo {
+          display: initial;
+        }
+      }
     }
 
     h2 {

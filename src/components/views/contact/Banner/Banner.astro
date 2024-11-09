@@ -45,6 +45,13 @@ import Quote from "../Quote/Quote.astro";
       display: grid;
       grid-template-columns: 1fr 1fr;
       place-content: center;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        form {
+          display: none;
+        }
+      }
     }
   }
 </style>

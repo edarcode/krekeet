@@ -1,5 +1,6 @@
 ---
 import Banner from "../components/views/contact/Banner/Banner.astro";
+import Form from "../components/views/contact/Form/Form.astro";
 import Layout2 from "../layouts/Layout2/Layout2.astro";
 import { PAGES } from "./pages";
 ---
@@ -7,6 +8,7 @@ import { PAGES } from "./pages";
 <Layout2 title={PAGES.contact.display}>
   <div class="contact">
     <Banner />
+    <Form cls="contact__form" />
   </div>
 </Layout2>
 
@@ -15,5 +17,13 @@ import { PAGES } from "./pages";
     max-width: var(--mw-layout);
     width: 100%;
     margin: var(--xl) auto;
+
+    .contact__form {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: grid;
+      }
+    }
   }
 </style>

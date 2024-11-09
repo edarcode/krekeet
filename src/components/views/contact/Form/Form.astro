@@ -1,10 +1,17 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import Btn from "../../../buttons/Btn/Btn.astro";
 import { COUNTRY_CODE } from "./countryCode";
 import { SERVICES } from "./services";
+
+interface Props extends HTMLAttributes<"form"> {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
 ---
 
-<form>
+<form class:list={[cls]}>
   <label>
     <div>Nombre:</div>
     <input type="text" />
@@ -68,7 +75,6 @@ import { SERVICES } from "./services";
 
   form {
     padding: var(--xl);
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--xl);
@@ -97,6 +103,18 @@ import { SERVICES } from "./services";
       justify-self: end;
       grid-column: span 2;
       min-width: 250px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+
+      .wrapper_msg,
+      button {
+        grid-column: span 1;
+      }
     }
   }
 </style>
