@@ -23,9 +23,11 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
   div {
     position: relative;
     max-width: 1600px;
-    height: calc(100vh - 47px - var(--xl) - var(--xl) - var(--xl));
+    height: calc(100vh - var(--h-nav) - var(--xl));
     width: 100%;
     aspect-ratio: 1600 / 974;
+    margin-top: var(--xl);
+
     @media (max-width: 768px) {
       height: calc(100vh);
     }
@@ -36,7 +38,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
       filter: brightness(0.6);
       object-fit: cover;
 
-      border-radius: var(--br-banner);
+      border-radius: var(--br);
 
       @media (max-width: 1600px) {
         border-radius: 0;

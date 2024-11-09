@@ -16,7 +16,7 @@ const { cls } = Astro.props;
 const { about, contact, index, perspective, products, work } = PAGES;
 ---
 
-<nav class:list={["nav", cls]}>
+<nav id="nav" class:list={["nav", cls]}>
   <GoToPage href={index.path}><Logo /></GoToPage>
   <div id="navWrapper" class="wrapper">
     <div class="wrapper1">
@@ -42,6 +42,7 @@ const { about, contact, index, perspective, products, work } = PAGES;
   const wrapper = document.querySelector("#navWrapper") as HTMLElement;
   const menu = document.querySelector("#menu") as HTMLElement;
   const menuImg = document.querySelector("#menuImg") as HTMLElement;
+  const nav = document.querySelector("#nav") as HTMLElement;
 
   menu.addEventListener("click", () => {
     const currentSrc = menuImg.getAttribute("src");
@@ -53,6 +54,14 @@ const { about, contact, index, perspective, products, work } = PAGES;
     }
 
     wrapper.classList.toggle("open");
+  });
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY >= 111) {
+      nav.style.borderRadius = "0 0 var(--br) var(--br)";
+    } else {
+      nav.style.borderRadius = "var(--br)";
+    }
   });
 </script>
 

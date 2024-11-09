@@ -1,7 +1,7 @@
 import ScrollReveal from "scrollreveal";
 
 ScrollReveal().reveal(".left-ani", {
-  distance: "999px",
+  distance: "100px",
   origin: "left",
   opacity: 0,
   viewFactor: 0.5,
@@ -10,7 +10,7 @@ ScrollReveal().reveal(".left-ani", {
 });
 
 ScrollReveal().reveal(".right-ani", {
-  distance: "999px",
+  distance: "100px",
   origin: "right",
   opacity: 0,
   viewFactor: 0.5,
@@ -19,7 +19,7 @@ ScrollReveal().reveal(".right-ani", {
 });
 
 ScrollReveal().reveal(".top-ani", {
-  distance: "999px",
+  distance: "100px",
   origin: "top",
   opacity: 0,
   viewFactor: 0.5,
@@ -28,7 +28,7 @@ ScrollReveal().reveal(".top-ani", {
 });
 
 ScrollReveal().reveal(".bottom-ani", {
-  distance: "999px",
+  distance: "100px",
   origin: "bottom",
   opacity: 0,
   viewFactor: 0.5,

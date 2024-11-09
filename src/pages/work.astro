@@ -12,10 +12,12 @@ import { PAGES } from "./pages";
 <Layout2 title={PAGES.work.display}>
   <div class="work">
     <Banner />
-    <OurWork />
-    <BrandDev />
-    <Growth />
-    <OurService />
+    <div class="wrapper1">
+      <OurWork />
+      <BrandDev />
+      <Growth />
+      <OurService />
+    </div>
   </div>
 </Layout2>
 
@@ -25,10 +27,13 @@ import { PAGES } from "./pages";
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-
     display: grid;
-    gap: var(--lg);
+    gap: var(--xl3);
 
-    position: relative;
+    .wrapper1 {
+      padding: 0 var(--xl);
+      display: grid;
+      gap: var(--xl3);
+    }
   }
 </style>
