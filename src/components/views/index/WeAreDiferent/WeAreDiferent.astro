@@ -1,5 +1,8 @@
 ---
+import { PAGES } from "../../../../pages/pages";
 import Btn from "../../../buttons/Btn/Btn.astro";
+import GoToExternalPage from "../../../hyperlinks/GoToExternalPage/GoToExternalPage.astro";
+import GoToPage from "../../../hyperlinks/GoToPage/GoToPage.astro";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 import arrow_right from "./arrow_right.svg";
 ---
@@ -17,9 +20,13 @@ import arrow_right from "./arrow_right.svg";
     Diseñamos, desarrollamos y creamos
   </p>
   <div class="btns" data-aos="fade-up">
-    <Btn>Software</Btn>
-    <Btn>Estrategias</Btn>
-    <Btn>Material</Btn>
+    <GoToExternalPage href={PAGES.products.path}
+      ><Btn>Software</Btn></GoToExternalPage
+    >
+    <GoToExternalPage href={PAGES.work.path}
+      ><Btn>Estrategias</Btn></GoToExternalPage
+    >
+    <GoToPage href={PAGES.perspectives.path}><Btn>Material</Btn></GoToPage>
   </div>
 </section>
 
