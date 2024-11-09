@@ -1,8 +1,8 @@
 ---
 import emociones from "./emociones.avif";
 import conectamos from "./conectamos.avif";
-import estructuramos from "./estructuramos.avif";
-import idea from "./idea.avif";
+import restructuramos from "./restructuramos.svg";
+import tuIdea from "./tu_idea.svg";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 ---
 
@@ -47,7 +47,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
         <li class="splide__slide">
           <div class="card">
             <picture>
-              <img src={idea.src} alt="tu idea es nuestra" />
+              <img src={tuIdea.src} alt="tu idea es nuestra" />
             </picture>
             <div class="content">
               <h6>Tu idea<br /><Fancy>Es la nuestra</Fancy></h6>
@@ -62,7 +62,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
         <li class="splide__slide">
           <div class="card">
             <picture>
-              <img src={estructuramos.src} alt="estructuramos y fomentamos" />
+              <img src={restructuramos.src} alt="estructuramos y fomentamos" />
             </picture>
             <div class="content">
               <h6>Restructuramos<br /><Fancy>y Fomentamos</Fancy></h6>
@@ -90,9 +90,9 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     pagination: false,
     arrows: false,
     gap: 32,
-    wheel: true,
-    releaseWheel: true,
-    padding: { left: 32, right: 32 },
+    // wheel: true,
+    // releaseWheel: true,
+    padding: { left: 32, right: 64 },
     breakpoints: { 768: { perPage: 1 } },
   });
 
@@ -103,7 +103,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     origin: "bottom",
     opacity: 0,
     viewFactor: 0.5,
-    duration: 2500,
+    duration: 1000,
     reset: true,
   });
 </script>
@@ -127,6 +127,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 
           @media (max-width: 768px) {
             grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
           }
 
           picture {
@@ -143,12 +144,12 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
           .content {
             display: grid;
             gap: var(--md);
-            padding: var(--xl) var(--lg) var(--lg) var(--lg);
+            padding: var(--lg);
 
             h6 {
               font-size: 34px;
               @media (max-width: 768px) {
-                font-size: 29px;
+                font-size: 20px;
               }
             }
             p {
