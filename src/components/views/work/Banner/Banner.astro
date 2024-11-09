@@ -1,0 +1,73 @@
+---
+import Logo from "../../../logos/Logo/Logo.astro";
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+---
+
+<div>
+  <video
+    autoplay
+    muted
+    loop
+    src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730408876/krekeet/ql64nu81lmimlpxbhh2v.mp4"
+  ></video>
+  <span class="wrapper_txts">
+    <span class="wrapper_logo">
+      <Logo />
+      <span>Trabajo</span>
+    </span>
+    <h1 class="title">Fomentemos<br /><Fancy>TÚ Crecimiento</Fancy></h1>
+  </span>
+</div>
+
+<style>
+  div {
+    position: relative;
+    max-width: 1600px;
+    height: calc(100vh - 47px - var(--xl) - var(--xl) - var(--xl));
+    width: 100%;
+    aspect-ratio: 1600 / 974;
+    @media (max-width: 768px) {
+      height: calc(100vh);
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.6);
+      object-fit: cover;
+
+      border-radius: var(--br-banner);
+
+      @media (max-width: 1600px) {
+        border-radius: 0;
+      }
+    }
+
+    .wrapper_txts {
+      padding: 0 var(--xl);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+
+      .wrapper_logo {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--md);
+        font-size: 32px;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+      }
+
+      .title {
+        font-size: 116px;
+        @media (max-width: 768px) {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+</style>

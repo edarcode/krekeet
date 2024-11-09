@@ -1,0 +1,47 @@
+---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+import crecimiento_conectando_puestos from "./crecimiento_conectando_puestos.avif";
+---
+
+<section>
+  <picture>
+    <img
+      data-aos="fade-right"
+      src={crecimiento_conectando_puestos.src}
+      alt="desarrollo de marca"
+    />
+  </picture>
+
+  <h2 data-aos="fade-left">
+    <Fancy>Crecimiento</Fancy> Conectando <Fancy>Puestos</Fancy> en el Radar <Fancy
+      >Correcto</Fancy
+    >
+  </h2>
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: var(--xl);
+    grid-template-columns: 40% 1fr;
+    align-items: center;
+
+    h2 {
+      font-size: 60px;
+    }
+
+    picture {
+      img {
+      }
+    }
+
+    @media (max-width: 1085px) {
+      grid-template-columns: 1fr;
+
+      h2 {
+        font-size: 24px;
+        grid-row: 1;
+      }
+    }
+  }
+</style>

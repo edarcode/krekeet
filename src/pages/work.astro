@@ -1,8 +1,34 @@
 ---
+import Banner from "../components/views/work/Banner/Banner.astro";
+import BrandDev from "../components/views/work/BrandDev/BrandDev.astro";
+import Growth from "../components/views/work/Growth/Growth.astro";
+import OurService from "../components/views/work/OurService/OurService.astro";
+import OurWork from "../components/views/work/OurWork/OurWork.astro";
 import Layout2 from "../layouts/Layout2/Layout2.astro";
+
 import { PAGES } from "./pages";
 ---
 
-<Layout2 title={PAGES.work.path}>
-  <h1>Trabajo</h1>
+<Layout2 title={PAGES.work.display}>
+  <div class="work">
+    <Banner />
+    <OurWork />
+    <BrandDev />
+    <Growth />
+    <OurService />
+  </div>
 </Layout2>
+
+<style>
+  .work {
+    max-width: var(--mw-layout);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    display: grid;
+    gap: var(--lg);
+
+    position: relative;
+  }
+</style>

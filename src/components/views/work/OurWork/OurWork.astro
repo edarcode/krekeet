@@ -1,0 +1,78 @@
+---
+import Btn from "../../../buttons/Btn/Btn.astro";
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+import nuestro_trabajo from "./nuestro_trabajo.avif";
+---
+
+<section>
+  <picture class="picture">
+    <img
+      data-aos="fade-right"
+      src={nuestro_trabajo.src}
+      alt="nuestro trabajo"
+    />
+  </picture>
+
+  <div class="wrapper">
+    <h2 data-aos="fade-top">
+      Nuestro <Fancy>Trabajo</Fancy>
+    </h2>
+    <p data-aos="fade-left">
+      Desde nuestros inicios, fomentamos el crecimiento impulsado por
+      experiencias, por resultados, por caminos de respeto y efectividad. Lo
+      cual nos permite dar muestras de nuestra experiencia:
+    </p>
+    <Btn data-aos="fade-up">Más Información</Btn>
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: var(--xl);
+    grid-template-columns: 40% 1fr;
+
+    @media (max-width: 650px) {
+      grid-template-columns: initial;
+    }
+
+    .picture {
+      max-width: 643px;
+      aspect-ratio: 643 / 601;
+      img {
+        width: 100%;
+      }
+    }
+
+    .wrapper {
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      gap: var(--lg);
+
+      h2,
+      p {
+      }
+
+      h2 {
+        font-size: 55px;
+        @media (max-width: 1120px) {
+          font-size: 32px;
+        }
+      }
+
+      p {
+        max-width: 736px;
+        font-size: 30px;
+        overflow: hidden;
+
+        @media (max-width: 1120px) {
+          font-size: 14px;
+        }
+      }
+
+      button {
+      }
+    }
+  }
+</style>
