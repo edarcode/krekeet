@@ -1,0 +1,66 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import calendar from "./calendar.svg";
+
+interface Props extends HTMLAttributes<"a"> {
+  "data-aos"?: string;
+  cls?: string;
+}
+
+const { cls, "data-aos": dataAos } = Astro.props;
+---
+
+<a
+  class={cls}
+  data-aos={dataAos}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Agenda tu cita"
+  href="https://calendly.com/consultoriakrekeet/consultoria-con-krekeet?month=2024-11"
+>
+  <picture>
+    <img src={calendar.src} alt="calendario" />
+  </picture>
+  <span class="txt">Agenta tu cita</span></a
+>
+
+<style>
+  a {
+    position: fixed;
+    bottom: var(--xl);
+    right: var(--xl);
+
+    display: flex;
+    align-items: center;
+    gap: var(--sm);
+
+    color: var(--white);
+    background-color: var(--primary);
+    border: none;
+    border-radius: 46px;
+    cursor: pointer;
+    padding: var(--md) var(--lg);
+
+    white-space: nowrap; /* Evita que el texto haga varias líneas */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Muestra los "..." cuando el texto se corta */
+
+    picture {
+      width: 35px;
+      height: 35px;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 100%;
+      padding: var(--lg);
+
+      .txt {
+        display: none;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+</style>
