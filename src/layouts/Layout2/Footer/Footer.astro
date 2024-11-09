@@ -5,7 +5,7 @@ import Fancy from "../../../components/spans/Fancy/Fancy.astro";
 ---
 
 <footer>
-  <div class="footer__wrapper bottom-ani-footer">
+  <div class="footer__wrapper" data-aos="fade-up">
     <section class="col1">
       <Logo />
       <p>© 2024 Krekeet. <br /> Todos los derechos reservados.</p>
@@ -34,19 +34,6 @@ import Fancy from "../../../components/spans/Fancy/Fancy.astro";
     </section>
   </div>
 </footer>
-
-<script>
-  import ScrollReveal from "scrollreveal";
-
-  ScrollReveal().reveal(".bottom-ani-footer", {
-    distance: "999px",
-    viewFactor: 0.4,
-    origin: "bottom",
-    opacity: 0,
-    duration: 1000,
-    reset: true,
-  });
-</script>
 
 <style>
   footer {
