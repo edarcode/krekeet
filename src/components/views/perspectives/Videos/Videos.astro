@@ -1,0 +1,36 @@
+---
+import { VIDEOS } from "./videos";
+---
+
+<ul class="videos">
+  {
+    VIDEOS.map((video) => (
+      <li data-aos="fade-up" class="card">
+        <lite-youtube class="lite" videoid={video.youtubeId} />
+        <div class="wrapperTitle">
+          <div class="title">{video.title}</div>
+          <div class="sub_title">krekeet</div>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--lg);
+
+    .card {
+      list-style: none;
+
+      .lite {
+        border-radius: 18px;
+      }
+
+      .wrapperTitle {
+      }
+    }
+  }
+</style>

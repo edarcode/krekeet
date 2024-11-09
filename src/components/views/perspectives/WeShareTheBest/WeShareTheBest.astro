@@ -1,0 +1,54 @@
+---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+---
+
+<div class="we_share">
+  <h2 data-aos="fade-right">Compartimos <br /> <Fancy>Lo mejor</Fancy></h2>
+  <lite-youtube data-aos="fade-left" class="video" videoid="iHaxFWiW9v8">
+  </lite-youtube>
+  <div class="wrapper_title">
+    <div class="title">Marketing</div>
+    <div class="sub_title">krekeet</div>
+  </div>
+</div>
+
+<style>
+  .we_share {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    @media (max-width: 1000px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .wrapper_title {
+        margin-right: auto;
+      }
+    }
+
+    h2 {
+      grid-row: span 2;
+      font-size: 60px;
+    }
+
+    .video {
+      border-radius: 18px;
+    }
+
+    .wrapper_title {
+      grid-column: 2 / 3;
+      justify-self: start;
+
+      .title {
+        font-size: 35px;
+      }
+
+      .sub_title {
+        font-size: 20px;
+      }
+    }
+  }
+</style>

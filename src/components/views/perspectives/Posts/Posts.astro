@@ -1,0 +1,42 @@
+---
+import { POST } from "./posts";
+---
+
+<section class="posts">
+  <h3>Post</h3>
+  <ul>
+    {
+      POST.map((post) => (
+        <li data-aos="fade-up" class="card">
+          <picture class="picture">
+            <img src={post.img.src} alt={post.title} />
+          </picture>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .posts {
+    margin-bottom: var(--xl3);
+    display: grid;
+    gap: var(--lg);
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--lg);
+
+      .card {
+        list-style: none;
+
+        .picture {
+          img {
+            border-radius: 18px;
+          }
+        }
+      }
+    }
+  }
+</style>

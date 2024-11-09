@@ -1,8 +1,38 @@
 ---
+import Banner from "../components/views/perspectives/Banner/Banner.astro";
+import Posts from "../components/views/perspectives/Posts/Posts.astro";
+import Videos from "../components/views/perspectives/Videos/Videos.astro";
+import WeShareTheBest from "../components/views/perspectives/WeShareTheBest/WeShareTheBest.astro";
 import Layout2 from "../layouts/Layout2/Layout2.astro";
+
 import { PAGES } from "./pages";
 ---
 
-<Layout2 title={PAGES.perspective.display}>
-  <h1>Perspectivas</h1>
+<Layout2 title={PAGES.perspectives.display}>
+  <div class="perspectives">
+    <Banner />
+    <div class="perspectives__wrapper1">
+      <WeShareTheBest />
+      <Videos />
+      <Posts />
+    </div>
+  </div>
 </Layout2>
+
+<style>
+  .perspectives {
+    max-width: var(--mw-layout);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: grid;
+    gap: var(--xl3);
+
+    .perspectives__wrapper1 {
+      overflow: hidden;
+      padding: 0 var(--xl);
+      display: grid;
+      gap: var(--xl3);
+    }
+  }
+</style>

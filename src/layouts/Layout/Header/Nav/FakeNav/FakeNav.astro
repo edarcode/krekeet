@@ -13,7 +13,7 @@ interface Props extends HTMLAttributes<"nav"> {
 
 const { cls } = Astro.props;
 
-const { about, contact, index, perspective, products, work } = PAGES;
+const { about, contact, index, perspectives, products, work } = PAGES;
 ---
 
 <nav id="fakeNav" class:list={["fakeNav", cls]}>
@@ -23,7 +23,7 @@ const { about, contact, index, perspective, products, work } = PAGES;
       <GoToPage href={about.path}>{about.display}</GoToPage>
       <GoToPage href={work.path}>{work.display}</GoToPage>
       <GoToPage href={products.path}>{products.display}</GoToPage>
-      <GoToPage href={perspective.path}>{perspective.display}</GoToPage>
+      <GoToPage href={perspectives.path}>{perspectives.display}</GoToPage>
     </div>
     <div class="wrapper2">
       <Network />

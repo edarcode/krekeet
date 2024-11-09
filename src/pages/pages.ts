@@ -15,7 +15,7 @@ export const PAGES = {
     path: "/products/",
     display: "Productos",
   },
-  perspective: {
+  perspectives: {
     path: "/perspectives/",
     display: "Perspectivas",
   },
