@@ -17,6 +17,20 @@ import Layout from "../layouts/Layout/Layout.astro";
   </div>
 </Layout>
 
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
+  AOS.init({
+    duration: 400, // Duración de la animación en ms
+    offset: 200, // Distancia de desplazamiento antes de la animación
+  });
+
+  window.addEventListener("load", () => {
+    AOS.refreshHard();
+  });
+</script>
+
 <style>
   .index {
     max-width: var(--mw-layout);

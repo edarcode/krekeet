@@ -7,11 +7,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 ---
 
 <section class="wrapperSlider2">
-  <div
-    class="splide slider2 bottom-ani-slider2"
-    role="group"
-    aria-label="carrusel 2"
-  >
+  <div class="splide slider2" role="group" aria-label="carrusel 2">
     <div class="splide__track track">
       <ul class="splide__list">
         <li class="splide__slide">
@@ -81,7 +77,6 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 <script>
   import "@splidejs/splide/css/core";
   import Splide from "@splidejs/splide";
-  import ScrollReveal from "scrollreveal";
 
   const splide = new Splide(".slider2", {
     type: "slide",
@@ -97,26 +92,18 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
   });
 
   splide.mount();
-
-  ScrollReveal().reveal(".bottom-ani-slider2", {
-    distance: "400px",
-    origin: "bottom",
-    opacity: 0,
-    viewFactor: 0.5,
-    duration: 1000,
-    reset: true,
-  });
 </script>
 
 <style>
   .wrapperSlider2 {
     display: grid;
     place-content: center;
-    margin: var(--xl3) var(--xl);
     overflow: hidden;
+    margin: var(--xl3) 0;
 
     .slider2 {
       .track {
+        border: var(--br);
         .card {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -127,7 +114,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
 
           @media (max-width: 768px) {
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 220px;
           }
 
           picture {
