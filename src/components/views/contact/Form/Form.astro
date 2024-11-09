@@ -80,7 +80,7 @@ const { cls } = Astro.props;
     //   msg,
     // };
 
-    await sendMail(email as string, msg as string);
+    console.log(await sendMail(email as string, msg as string));
   });
 </script>
 
