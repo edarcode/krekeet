@@ -22,7 +22,7 @@ const { cls } = Astro.props;
     <input type="email" name="email" />
   </label>
 
-  <label for="tel" class="wrapper_tel">
+  <label for="num" class="wrapper_num">
     <div>Número:</div>
     <div>
       <select name="countryCode">
@@ -32,7 +32,7 @@ const { cls } = Astro.props;
           ))
         }
       </select>
-      <input id="tel" type="number" name="tel" />
+      <input id="num" type="number" name="num" />
     </div>
   </label>
 
@@ -52,13 +52,15 @@ const { cls } = Astro.props;
     <textarea name="msg"></textarea>
   </label>
 
-  <Btn>Enviar</Btn>
+  <Btn id={"form__btn"}>Enviar</Btn>
 </form>
 
 <script>
-  import { sendMail } from "../../../../service/sendMail";
+  import { sendMailService } from "./sendMailService";
 
   const form = document.querySelector("#contactForm") as HTMLElement;
+  const btn = document.querySelector("#form__btn") as HTMLButtonElement;
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const target = e.target as HTMLFormElement;
@@ -71,16 +73,32 @@ const { cls } = Astro.props;
     const serv = form.get("serv");
     const msg = form.get("msg");
 
-    // const allData = {
-    //   name,
-    //   email,
-    //   countryCode,
-    //   num,
-    //   serv,
-    //   msg,
-    // };
+    if (!msg || !email) return;
 
-    console.log(await sendMail(email as string, msg as string));
+    console.log(msg);
+
+    try {
+      btn.style.backgroundColor = "grey";
+      btn.disabled = false;
+
+      await sendMailService({
+        from: String(email),
+        msg: String(msg),
+        name: String(name),
+        countryCode: String(countryCode),
+        num: Number(num),
+        serv: String(serv),
+      });
+      console.log("todo ok");
+
+      btn.style.backgroundColor = "var(--primary)";
+    } catch (error) {
+      console.log("todo mal");
+      btn.style.backgroundColor = "red";
+    } finally {
+      btn.disabled = true;
+      console.log("fin");
+    }
   });
 </script>
 
@@ -103,13 +121,15 @@ const { cls } = Astro.props;
   }
 
   form {
+    font-size: 20px;
+    line-height: 30px;
     padding: var(--xl);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--xl);
     align-items: center;
 
-    .wrapper_tel {
+    .wrapper_num {
       div {
         display: grid;
         grid-template-columns: auto 1fr;

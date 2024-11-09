@@ -6,10 +6,10 @@ interface Props extends HTMLAttributes<"button"> {
   "data-aos"?: string;
 }
 
-const { cls, "data-aos": dataAos } = Astro.props;
+const { cls, "data-aos": dataAos, ...extraProps } = Astro.props;
 ---
 
-<button class:list={[cls]} data-aos={dataAos}>
+<button {...extraProps} class:list={[cls]} data-aos={dataAos}>
   <slot />
 </button>
 
