@@ -85,14 +85,15 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
   import Splide from "@splidejs/splide";
 
   const splide = new Splide(".slider2", {
-    type: "slide",
-    drag: "free",
+    type: "loop",
+    drag: true,
     perPage: 2,
     pagination: false,
     arrows: false,
     gap: 32,
     wheel: true,
-    releaseWheel: true,
+    speed: 2000,
+    wheelSleep: 500,
     padding: { left: 32, right: 64 },
     breakpoints: { 768: { perPage: 1 } },
   });

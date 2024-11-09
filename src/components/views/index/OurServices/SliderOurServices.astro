@@ -51,13 +51,13 @@ const { cls } = Astro.props;
   import Splide from "@splidejs/splide";
 
   var splide = new Splide(".sliderOur", {
-    type: "slide",
-    arrows: false,
-    pagination: false,
+    type: "loop",
     drag: true,
+    pagination: false,
+    arrows: false,
     wheel: true,
-    releaseWheel: true,
-    wheelSleep: 1000,
+    speed: 2000,
+    wheelSleep: 500,
   });
   splide.mount();
 </script>
