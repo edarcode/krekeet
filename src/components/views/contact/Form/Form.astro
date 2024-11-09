@@ -1,39 +1,102 @@
+---
+import Btn from "../../../buttons/Btn/Btn.astro";
+import { COUNTRY_CODE } from "./countryCode";
+import { SERVICES } from "./services";
+---
+
 <form>
   <label>
-    Nombre:
+    <div>Nombre:</div>
     <input type="text" />
   </label>
 
   <label>
-    Email:
+    <div>Email:</div>
     <input type="email" />
   </label>
 
-  <label for="tel">
-    Número:
-    <select>
-      <option value="+57">+57</option>
-      <option value="+34">+34</option>
-    </select>
-    <input id="tel" type="number" />
+  <label for="tel" class="wrapper_tel">
+    <div>Número:</div>
+    <div>
+      <select>
+        {
+          COUNTRY_CODE.map((code) => (
+            <option value={code.value}>{code.display}</option>
+          ))
+        }
+      </select>
+      <input id="tel" type="number" />
+    </div>
   </label>
 
-  <label>
-    Servicio:
+  <label class="wrapper_serv">
+    <div>Servicio:</div>
     <select name="" id="">
-      <option value="1">opt1</option>
-      <option value="2">opt2</option>
+      {
+        SERVICES.map((serv) => (
+          <option value={serv.value}>{serv.display}</option>
+        ))
+      }
     </select>
   </label>
 
-  <label>
-    Mensaje:
+  <label class="wrapper_msg">
+    <div>Mensaje:</div>
     <textarea></textarea>
   </label>
+
+  <Btn>Enviar</Btn>
 </form>
 
 <style>
+  input,
+  select,
+  textarea {
+    border: none;
+    padding: 5px;
+    width: 100%;
+    min-height: 51px;
+    border-radius: 5px;
+  }
+
+  input {
+  }
+
+  textarea {
+    min-height: 128px;
+  }
+
   form {
     padding: var(--xl);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--xl);
+    align-items: center;
+
+    .wrapper_tel {
+      div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        select {
+          border-radius: 5px 0 0 5px;
+        }
+
+        input {
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+
+    .wrapper_msg {
+      grid-column: span 2;
+    }
+
+    button {
+      justify-self: end;
+      grid-column: span 2;
+      min-width: 250px;
+    }
   }
 </style>
