@@ -7,7 +7,7 @@ export const sendMail = async (from?: string, msg?: string) => {
 
   const result = await resend.emails.send({
     from,
-    to: import.meta.env.PUBLIC_FROM_EMAIL_RESEND,
+    to: [import.meta.env.PUBLIC_FROM_EMAIL_RESEND],
     subject: "KREKEET",
     html: `<p>${msg}</p>`,
   });
