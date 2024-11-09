@@ -19,7 +19,7 @@ const { cls } = Astro.props;
 
   <label>
     <div>Email:</div>
-    <input type="email" name="email" />
+    <input type="email" name="email" required />
   </label>
 
   <label for="num" class="wrapper_num">
@@ -49,7 +49,7 @@ const { cls } = Astro.props;
 
   <label class="wrapper_msg">
     <div>Mensaje:</div>
-    <textarea name="msg"></textarea>
+    <textarea name="msg" required></textarea>
   </label>
 
   <Btn id={"form__btn"}>Enviar</Btn>
@@ -58,28 +58,25 @@ const { cls } = Astro.props;
 <script>
   import { sendMailService } from "./sendMailService";
 
-  const form = document.querySelector("#contactForm") as HTMLElement;
+  const form = document.querySelector("#contactForm") as HTMLFormElement;
   const btn = document.querySelector("#form__btn") as HTMLButtonElement;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const target = e.target as HTMLFormElement;
-    const form = new FormData(target);
+    const formData = new FormData(target);
 
-    const name = form.get("name");
-    const email = form.get("email");
-    const countryCode = form.get("countryCode");
-    const num = form.get("num");
-    const serv = form.get("serv");
-    const msg = form.get("msg");
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const countryCode = formData.get("countryCode");
+    const num = formData.get("num");
+    const serv = formData.get("serv");
+    const msg = formData.get("msg");
 
     if (!msg || !email) return;
 
-    console.log(msg);
-
     try {
-      btn.style.backgroundColor = "grey";
-      btn.disabled = false;
+      btn.disabled = true;
 
       await sendMailService({
         from: String(email),
@@ -89,15 +86,12 @@ const { cls } = Astro.props;
         num: Number(num),
         serv: String(serv),
       });
-      console.log("todo ok");
 
-      btn.style.backgroundColor = "var(--primary)";
+      form.reset();
     } catch (error) {
-      console.log("todo mal");
-      btn.style.backgroundColor = "red";
+      btn.style.backgroundColor = "var(--red)";
     } finally {
-      btn.disabled = true;
-      console.log("fin");
+      btn.disabled = false;
     }
   });
 </script>

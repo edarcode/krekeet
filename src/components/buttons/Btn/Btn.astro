@@ -26,8 +26,14 @@ const { cls, "data-aos": dataAos, ...extraProps } = Astro.props;
     overflow: hidden; /* Oculta el texto que se desborda */
     text-overflow: ellipsis; /* Muestra los "..." cuando el texto se corta */
 
-    &:active {
+    &:active:not(:disabled) {
       transform: scale(0.95);
+    }
+
+    &:disabled {
+      outline: 1px solid var(--soft-grey);
+      background-color: transparent;
+      cursor: not-allowed;
     }
   }
 </style>
