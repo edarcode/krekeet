@@ -1,0 +1,90 @@
+---
+import { ProductsData } from "./data";
+---
+
+<section id="products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center p-[var(--xs)] my-[var(--xxl)]">
+  {
+    ProductsData.map((data, index) => {
+      return (
+        <div data-aos="fade-down" class="card cursor-pointer h-[450px] rounded-[25px]">
+          <dir class="absolute w-full h-full p-0">
+            <div class="front absolute flex flex-col justify-end w-full h-full rounded-[25px] z[0]" style={{ backgroundImage: `url(${data.url})`, backgroundPosition: "center", backgroundSize: "cover" }}>
+              <div class="card-bg w-full h-full bg-black/25 z-[1] absolute rounded-[25px]"></div>
+              <span class="font-semibold text-[33px] leading-[30px] text-left m-5 z-[2]">
+                {data.title}
+              </span>
+            </div>
+            <dir class="back absolute flex flex-col justify-center items-center w-full h-full rounded-[25px] p-5 bg-[var(--primary)]">
+              <span class="font-normal text-[15px] leading-[24px]">
+                {data.description}
+              </span>
+            </dir>
+          </dir>
+        </div>
+      )
+    })
+  }
+</section>
+
+<style>
+  @keyframes anim-flip-left {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .card {
+    perspective: 1000px; /* Esto da profundidad a la animación */
+  }
+
+  .card .front,
+  .card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden; /* Evita que el lado opuesto se vea cuando esté rotado */
+    transition: transform 0.6s;
+  }
+
+  .card .front {
+    z-index: 2; /* Se asegura de que la parte frontal esté por encima por defecto */
+    transform: rotateY(0deg); /* La parte frontal inicia en su posición original */
+  }
+
+  .card .back {
+    transform: rotateY(180deg); /* La parte trasera inicia oculta por el giro */
+    z-index: 1; /* Colocamos la parte trasera detrás inicialmente */
+  }
+
+  .card.flip-left .front {
+    transform: rotateY(180deg); /* Al aplicar flip-left, la parte frontal rota */
+  }
+
+  .card.flip-left .back {
+    transform: rotateY(0deg); /* La parte trasera se muestra después del giro */
+  }
+</style>
+
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+  AOS.init({
+    duration: 1000,
+    once: false,
+    mirror: true
+  });
+
+  const cards = document.querySelectorAll(".card")
+  if (cards) {
+    cards.forEach(card => {
+      (card as HTMLElement).addEventListener("click", () => {
+        (card as HTMLElement).closest(".card")!.classList.toggle("flip-left")
+      })
+    });
+  }
+</script>

@@ -1,8 +1,17 @@
 ---
-import Layout2 from "../layouts/Layout2/Layout2.astro";
 import { PAGES } from "./pages";
+import Layout2 from "../layouts/Layout2/Layout2.astro";
+import Business from "../components/views/products/Business/Business.astro";
+import Enterprises from "../components/views/products/Enterprises/Enterprises.astro";
+import ProductsView from "../components/views/products/Products/ProductsView.astro";
+import Banner from "../components/views/products/Banner/Banner.astro";
 ---
 
 <Layout2 title={PAGES.products.display}>
-  <h1>Productos</h1>
+  <main class="overflow-hidden">
+    <Banner />
+    <Business />
+    <Enterprises />
+    <ProductsView />
+  </main>
 </Layout2>
