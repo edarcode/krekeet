@@ -1,0 +1,87 @@
+---
+import { LeadershipData } from "./data";
+import "./styles.css"
+---
+
+<section id="leadership" class="flex flex-col justify-center items-center h-[795px] my-[var(--xxl)]">
+  <span id="liderazgo" class="font-bold text-[59px] text-center">LIDERAZGO</span>
+  <div id="leadershipContainer" class="flex flex-row h-full w-full justify-center items-center">
+    {
+      LeadershipData.map((data, index) => {
+        return (
+          <div 
+            class="card absolute w-[200px] h-[230px] gap-5 p-5 rounded-[26px]" 
+            data-index={index}
+            style={{
+              zIndex: (LeadershipData.length - 1) - index,
+              transform: `translate(${index * 40}%, -${index * 20}px)`,
+              background: "linear-gradient(to top, #000000, #3C3C3C)",
+              boxShadow: "1px 7px 31px 0 var(--primary)",
+              opacity: `${index === 0 ? "1" : ".33"}`,
+              cursor: `${index === 0 ? "default" : "pointer"}`
+            }}
+          >
+            <div class="flex flex-col justify-center w-full h-full">
+              <div class="flex flex-row justify-center h-[70%]">
+                <div class="flex flex-col justify-center">
+                  <div class="w-32 h-32 bg-contain bg-center bg-no-repeat" style={{backgroundImage: `url("${data.imgsrc}")`}}></div>
+                </div>
+              </div>
+              <div class="flex flex-col h-[30%]">
+                <span class="font-medium text-[15px] leading-[41px] text-center">{data.name}</span>
+                <span class="font-bold text-[12px] leading-[41px] text-center text-[var(--primary)]">{data.role}</span>
+              </div>
+            </div>
+          </div>
+        )
+      })
+    }
+  </div>
+</section>
+
+<script>
+  const liderazgo = (document.querySelector("#liderazgo") as HTMLElement);
+  if (liderazgo) {
+    const observerLiderazgo = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            liderazgo.style.animation = "liderazgo-in 1s forwards";
+          } else {
+            liderazgo.style.animation = "liderazgo-out 1s forwards";
+          }
+        });
+      },
+      { threshold: 0.33 }
+    );
+    observerLiderazgo.observe(liderazgo);
+  }
+
+  const cards = Array.from(document.querySelectorAll(".card"));
+
+  cards.forEach(card => {
+    card.addEventListener("click", (event) => {
+      const selectedCard = (event.target as HTMLElement).closest(".card") as HTMLElement
+      if (selectedCard.style.zIndex !== "1") {
+        cards.forEach(card => {
+          if (selectedCard === card) {
+            // Traer al frente
+            (card as HTMLElement).style.animation = "card-go-front 1s forwards"
+            setTimeout(() => {
+              (card as HTMLElement).style.zIndex = "1";
+              (card as HTMLElement).style.cursor = "default";
+            }, 500)
+          } else {
+            // Mandar atrás
+            (card as HTMLElement).style.animation = "card-go-back 1s forwards"
+            setTimeout(() => {
+              (card as HTMLElement).style.zIndex = "0";
+              (card as HTMLElement).style.cursor = "pointer";
+            }, 500)
+          }
+        });
+      }
+    })
+  });
+
+</script>

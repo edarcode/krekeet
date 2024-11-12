@@ -1,0 +1,137 @@
+<section data-aos="fade" id="weare" class="flex flex-col w-full justify-center my-[var(--xxl)]">
+  <!-- default -->
+  <div id="weare-default" class="sm:hidden md:hidden lg:hidden xl:hidden flex flex-col w-full items-center py-12 gap-[var(--lg)]">
+    <div class="flex flex-col w-[250px]">
+      <span data-aos="fade-down" class="font-bold text-[50px] leading-[45px] text-left">ESTAMOS</span>
+      <span data-aos="fade-right" class="font-bold text-[32px] leading-[41px] text-left text-[var(--primary)]">Y SOMOS</span>
+    </div>
+    <div data-aos="fade-left" class="flex flex-row justify-center w-[250px] h-[250px] rounded-[10px]" style={{backgroundImage: `url("/src/views/aboutus/WeAre/assets/1.png")`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
+  </div>
+
+  <!-- sm -->
+  <div id="weare-sm" class="hidden sm:flex md:hidden flex-col w-full items-center py-12 gap-[var(--lg)]">
+    <div class="flex flex-col w-[400px]">
+      <span data-aos="fade-down" class="font-bold text-[67px] leading-[63px] text-left">ESTAMOS</span>
+      <span data-aos="fade-right" class="font-bold text-[40px] leading-[60px] text-left text-[var(--primary)]">Y SOMOS</span>
+    </div>
+    <div data-aos="fade-left" class="flex flex-row justify-center w-[400px] h-[400px] rounded-[10px]" style={{backgroundImage: `url("/src/views/aboutus/WeAre/assets/1.png")`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
+  </div>
+
+  <!-- md -->
+  <div id="weare-md" class="hidden md:flex lg:hidden flex-col w-full items-center py-12 gap-[var(--lg)]">
+    <div class="flex flex-col w-[550px]">
+      <span data-aos="fade-down" class="font-bold text-[84px] leading-[81px] text-left">ESTAMOS</span>
+      <span data-aos="fade-right" class="font-bold text-[48px] leading-[79px] text-left text-[var(--primary)]">Y SOMOS</span>
+    </div>
+    <div data-aos="fade-left" class="flex flex-row justify-center w-[550px] h-[550px] rounded-[10px]" style={{backgroundImage: `url("/src/views/aboutus/WeAre/assets/1.png")`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
+  </div>
+
+  <!-- lg -->
+  <div id="weare-lg" class="hidden lg:flex xl:hidden flex-row w-full justify-between gap-[var(--xxl)] relative">
+    <div class="flex flex-row w-full items-center">
+      <div id="weare-lg-text-1" class="absolute flex flex-col justify-center gap-[var(--xl)]">
+        <span data-aos="fade-down" class="font-bold text-[99px] leading-[101px]">ESTAMOS</span>
+        <span data-aos="fade-up" class="font-bold text-[58px] leading-[100px] text-[var(--primary)]">Y somos</span>
+      </div>
+      <div id="weare-lg-text-2" class="flex flex-col justify-center" style={{opacity: 0}}>
+        <span data-aos="fade-down" class="font-bold text-[37px] leading-[109px] text-[var(--primary)]">ESTAMOS Y SOMOS</span>
+        <p data-aos="fade-up" class="font-normal text-[28px] leading-[37px] text-justify">Un equipo de trabajo, construido por partes humanas enfocadas en el desarrollo, conociendo el negocio mejor que nadie, avanzando con un equipo de expertos hacia los desafíos de cada proyecto.</p>
+      </div>
+    </div>
+    <div data-aos="fade-left" class="flex flex-row justify-center min-w-[450px] min-h-[400px] rounded-[10px]" style={{backgroundImage: `url("/src/views/aboutus/WeAre/assets/1.png")`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
+  </div>
+
+  <!-- xl -->
+  <div id="weare-xl" class="hidden xl:flex flex-row w-full justify-between gap-[var(--xxl)] relative">
+    <div class="flex flex-row w-full items-center">
+      <div id="weare-xl-text-1" class="absolute flex flex-col justify-center gap-[var(--xl)]">
+        <span data-aos="fade-down" class="font-bold text-[116px] leading-[119px]">ESTAMOS</span>
+        <span data-aos="fade-up" class="font-bold text-[66px] leading-[119px] text-[var(--primary)]">Y somos</span>
+      </div>
+      <div id="weare-xl-text-2" class="flex flex-col justify-center" style={{opacity: 0}}>
+        <span data-aos="fade-down" class="font-bold text-[41px] leading-[119px] text-[var(--primary)]">ESTAMOS Y SOMOS</span>
+        <p data-aos="fade-up" class="font-normal text-[30px] leading-[40px] text-justify">Un equipo de trabajo, construido por partes humanas enfocadas en el desarrollo, conociendo el negocio mejor que nadie, avanzando con un equipo de expertos hacia los desafíos de cada proyecto.</p>
+      </div>
+    </div>
+    <div data-aos="fade-left" class="flex flex-row justify-center min-w-[650px] min-h-[600px] rounded-[38px]" style={{backgroundImage: `url("/src/views/aboutus/WeAre/assets/1.png")`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
+  </div>
+</section>
+
+<script>
+  import ScrollMagic from "scrollmagic";
+  import { gsap } from "gsap";
+
+  function getCurrentScale() {
+    if (window.matchMedia("(min-width: 1280px)").matches) return "xl";
+    if (window.matchMedia("(min-width: 1024px)").matches) return "lg";
+    if (window.matchMedia("(min-width: 768px)").matches) return "md";
+    if (window.matchMedia("(min-width: 640px)").matches) return "sm";
+    return "default";
+  }
+
+  // Variable que contiene la escala actual para no crear a cada rato una scene
+  let currentScale: string | null = null
+
+  // Contenedor de Desde República Dominicada
+  const weare = document.querySelector("#weare") as HTMLElement
+
+  // Crear controlador de ScrollMagic
+  const controller = new ScrollMagic.Controller();
+
+  // Configurar la animación de los textos
+  let scene: ScrollMagic.Scene | null = null;
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    currentScale = getCurrentScale()
+    initScene(true)
+  })
+  window.addEventListener("resize", () => {initScene()})
+
+  function initScene(init: boolean = false) {
+    if (getCurrentScale() === "default" || getCurrentScale() === "sm" || getCurrentScale() === "md") {
+      if (scene) {
+        scene.destroy(true)
+      }
+      return
+    }
+    if (!init && currentScale === getCurrentScale()) {
+      return
+    } else {
+      currentScale = getCurrentScale()
+    }
+    if (scene) scene.destroy(true)
+    scene = new ScrollMagic.Scene({
+      triggerElement: "#weare", // Elemento donde se inicia la escena
+      duration: "100%", // Duración de la pausa del scroll
+      triggerHook: 0.50, // Punto de disparo (en este caso, en el centro)
+      offset: (weare.getBoundingClientRect().height / 2)
+    })
+    .setPin("#weare") // Fija el elemento durante la duración
+    .on("progress", () => {
+      if (scene!.progress() > .5) {
+        // Cambia al segundo texto cuando la escena empieza
+        gsap.to(`#weare-${getCurrentScale()}-text-1`, { opacity: 0, duration: 0.5, display: "none" });
+        gsap.to(`#weare-${getCurrentScale()}-text-2`, { opacity: 1, duration: 0.5, display: "flex" });
+      }
+    })
+    .on("leave", () => {
+      if (scene!.state() === "BEFORE") {
+        gsap.to(`#weare-${getCurrentScale()}-text-1`, { opacity: 1, duration: 0.5, display: "flex" });
+        gsap.to(`#weare-${getCurrentScale()}-text-2`, { opacity: 0, duration: 0.5, display: "none" });
+      } else if (scene!.state() === "AFTER") {
+        gsap.to(`#weare-${getCurrentScale()}-text-1`, { opacity: 0, duration: 0.5, display: "none" });
+        gsap.to(`#weare-${getCurrentScale()}-text-2`, { opacity: 1, duration: 0.5, display: "flex" });
+      }
+    })
+    .addTo(controller);
+
+    if (scene.state() === "BEFORE" || (scene.state() === "DURING" && scene.progress() < 0.5)) {
+      gsap.set(`#weare-${getCurrentScale()}-text-1`, { opacity: 1, display: "flex" });
+      gsap.set(`#weare-${getCurrentScale()}-text-2`, { opacity: 0, display: "none" });
+    } else {
+      gsap.set(`#weare-${getCurrentScale()}-text-1`, { opacity: 0, display: "none" });
+      gsap.set(`#weare-${getCurrentScale()}-text-2`, { opacity: 1, display: "flex" });
+    }
+  }
+
+</script>

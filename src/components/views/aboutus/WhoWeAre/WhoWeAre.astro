@@ -1,0 +1,56 @@
+<script>
+  import AOS from "aos"
+  import "aos/dist/aos.css";
+  AOS.init({
+    duration: 1000,
+    once: false
+  })
+</script>
+
+<section id="whoweare" class="flex flex-col justify-center h-[795px] my-[var(--xxl)]">
+  <div id="content-whoweare" class="flex flex-col xl:flex-row justify-center">
+    <!-- LG o menor -->
+    <div class="xl:hidden w-full text-center border-b-[1px] border-b-[var(--primary)] py-12">
+      <div class="flex flex-col justify-center w-full">
+        <div class="flex flex-row justify-center">
+          <div class="flex flex-col justify-center w-fit text-end">
+            <div data-aos="fade-right">
+              <span data-aos="fade-right" class="font-bold text-[59px] leading-[50px] relative quienes">¿Quiénes</span>
+            </div>
+            <div data-aos="fade-down-left">
+              <span class="font-bold text-[32px] text-[var(--primary)] leading-[50px] relative somos">Somos?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="xl:hidden flex flex-col justify-center w-full text-center border-t-[1px] border-t-[var(--primary)] py-12">
+      <div data-aos="fade">
+        <span class="font-normal text-[32px]">Quiénes somos y por qué nos convierte en un aliado estratégico con el cual trabajar</span>
+      </div>
+    </div>
+    
+    <!-- XL -->
+    <div class="hidden xl:block w-full text-end pr-24 border-r-2 border-r-[var(--primary)] py-12">
+      <div data-aos="fade-right">
+        <span class="font-bold text-[116px] leading-[100px]">¿Quiénes</span>
+      </div>
+      <div data-aos="fade-down-left">
+        <span class="font-bold text-[66px] text-[var(--primary)] leading-[100px] relative somos">Somos?</span>
+      </div>
+    </div>
+    <div class="hidden xl:flex flex-col justify-center w-full text-center pl-24 border-l-2 border-l-[var(--primary)] py-12">
+      <div data-aos="fade">
+        <span class="font-bold text-[32px]">Quiénes somos y por qué nos convierte en un aliado estratégico con el cual trabajar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import AOS from "aos";
+  AOS.init({
+    duration: 1000,
+    once: true, // Ejecuta la animación una vez
+  });
+</script>

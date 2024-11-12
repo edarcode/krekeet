@@ -1,8 +1,32 @@
 ---
+import Banner from "../components/views/aboutus/Banner/Banner.astro";
+import NewConnecting from "../components/views/aboutus/Connecting/NewConnecting.astro";
+import NewFromTo from "../components/views/aboutus/FromTo/NewFromTo.astro";
+import NewLeadership from "../components/views/aboutus/Leadership/NewLeadership.astro";
+import NewWeAre from "../components/views/aboutus/WeAre/NewWeAre.astro";
+import NewWhoWeAre from "../components/views/aboutus/WhoWeAre/NewWhoWeAre.astro";
+import NewWhyWorkWithUs from "../components/views/aboutus/WhyWorkWithUs/NewWhyWorkWithUs.astro";
 import Layout2 from "../layouts/Layout2/Layout2.astro";
 import { PAGES } from "./pages";
 ---
 
-<Layout2 title={PAGES.perspectives.display}>
-  <h1>Sobre nosotros</h1>
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+  AOS.init({
+    duration: 1000,
+    once: false,
+  });
+</script>
+
+<Layout2 title={PAGES.about.display}>
+  <main class="overflow-hidden">
+    <Banner />
+    <NewWhoWeAre />
+    <NewConnecting />
+    <NewFromTo />
+    <NewWhyWorkWithUs />
+    <NewWeAre />
+    <NewLeadership />
+  </main>
 </Layout2>

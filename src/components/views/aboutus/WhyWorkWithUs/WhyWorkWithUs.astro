@@ -1,0 +1,146 @@
+<section id="whyworkwithus" class="flex flex-col justify-center h-[795px] my-[var(--xxl)]">
+  <!-- LG o menor -->
+  <div class="content-whyworkwithus flex xl:hidden flex-row justify-center">
+    <div class="flex flex-col pb-5 mb-5">
+      <span class="title font-semibold text-[34px] text-left title">¿Por qué?</span>
+      <span class="title-2 font-bold text-[44px] title-2 text-left">Trabajar Con <span class="text-[var(--primary)]">Nosotros</span></span>
+    </div>
+  </div>
+  <div class="flex xl:hidden  flex-row w-full justify-center">
+    <div class="flex flex-row justify-center w-[1100px]">
+      <p class="description font-medium text-[25px] text-justify opacity-0 w-[680px]">
+        Ayudamos a las organizaciones a Mejorar y Potenciar sus productos, Ventas, Procesos e idear Construyendo de la mano de nuestros clientes Growthpartner 
+        garantizando resultados y Entregar más alla de las expectativas
+      </p>
+    </div>
+  </div>
+
+  <!-- XL -->
+  <div class="content-whyworkwithus hidden xl:flex flex-row justify-center">
+    <div class="border flex flex-col border-b border-transparent pb-5 mb-5 w-fit">
+      <span class="title font-semibold text-[34px] text-center title">¿Por qué?</span>
+      <span class="title-2 font-bold text-[44px] title-2 text-center">Trabajar Con <span class="text-[var(--primary)]">Nosotros</span></span>
+    </div>
+  </div>
+  <div class="hidden xl:flex flex-row w-full justify-center">
+    <div class="flex flex-row justify-center w-[1100px]">
+      <p class="description font-medium text-[25px] text-center opacity-0">
+        Ayudamos a las organizaciones a Mejorar y Potenciar sus productos, Ventas, Procesos e idear Construyendo de la mano de nuestros clientes Growthpartner 
+        garantizando resultados y Entregar más alla de las expectativas
+      </p>
+    </div>
+  </div>
+  
+</section>
+
+<style>
+  @tailwind utilities;
+
+  @layer utilities {
+    @keyframes expand-border {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 150%;
+      }
+    }
+
+    @keyframes expand-title-text {
+      0% {
+        font-size: 34px;
+      }
+      100% {
+        font-size: 39px;
+      }
+    }
+
+    @keyframes expand-title-2-text {
+      0% {
+        font-size: 44px;
+      }
+      100% {
+        font-size: 65px;
+      }
+    }
+
+    @keyframes fade-in-description {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .animate-border-expand {
+      position: relative;
+    }
+
+    .animate-border-expand::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--tw-border-opacity, var(--primary));
+      transform: translateX(-50%);
+      animation: expand-border 2s forwards;
+    }
+  }
+</style>
+
+<script>
+  let content_container = document.querySelectorAll(".content-whyworkwithus");
+  if (content_container) {
+    // Obtener los elementos
+    let border = document.querySelectorAll(".border");
+    let title_1 = document.querySelectorAll(".title");
+    let title_2 = document.querySelectorAll(".title-2");
+    let description = document.querySelectorAll(".description");
+
+    // Crea un nuevo Intersection Observer
+    let observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Comprueba si el elemento es visible en pantalla
+          if (entry.isIntersecting) {
+            border.forEach(element => {
+              (element as HTMLElement).classList.add("animate-border-expand");
+            });
+            title_1.forEach(element => {
+              (element as HTMLElement).style.animation = "expand-title-text 2s forwards"
+            });
+            title_2.forEach(element => {
+              (element as HTMLElement).style.animation = "expand-title-2-text 2s forwards"
+            });
+            description.forEach(element => {
+              (element as HTMLElement).style.animation = "fade-in-description 2s forwards"
+            });
+          } else {
+            border.forEach(element => {
+              (element as HTMLElement).classList.remove("animate-border-expand");
+            });
+            title_1.forEach(element => {
+              (element as HTMLElement).style.animation = ""
+            });
+            title_2.forEach(element => {
+              (element as HTMLElement).style.animation = ""
+            });
+            description.forEach(element => {
+              (element as HTMLElement).style.animation = ""
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.10,
+      },
+    );
+    content_container.forEach(element => {
+      console.log()
+      observer.observe(element);
+    });
+  }
+</script>
