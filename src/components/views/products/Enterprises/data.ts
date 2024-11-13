@@ -1,6 +1,8 @@
 export const EnterprisesData = [
-  "EJEMPLO 1",
-  "EJEMPLO 2",
-  "EJEMPLO 3",
-  "EJEMPLO 4"
-]
+  "Desarrollo químico farmacéutico s.a.s",
+  "Nutritoys",
+  "Embutidos Ricard",
+  "⁠Inmobiliarias Ramirez S.A.S",
+  "Babbu embutidos",
+  "Distrago Química",
+];
