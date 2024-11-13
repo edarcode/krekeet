@@ -76,11 +76,20 @@ import SliderOurServices from "./SliderOurServices.astro";
         const progress = scene?.progress();
         if (!progress) return;
 
-        if (progress > 0.3) {
+        if (progress >= 0 && progress <= 0.3) {
+          conent1.style.opacity = "1";
+          conent2.style.opacity = "0";
+          conent3.style.opacity = "0";
+        }
+
+        if (progress > 0.3 && progress <= 0.6) {
           conent1.style.opacity = "0";
           conent2.style.opacity = "1";
+          conent3.style.opacity = "0";
         }
+
         if (progress > 0.6) {
+          conent1.style.opacity = "0";
           conent2.style.opacity = "0";
           conent3.style.opacity = "1";
         }
