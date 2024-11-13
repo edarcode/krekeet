@@ -2,6 +2,7 @@
 import Logo from "../../../components/logos/Logo/Logo.astro";
 import Network from "../../../components/navs/Network/Network.astro";
 import Fancy from "../../../components/spans/Fancy/Fancy.astro";
+import { PAGES } from "../../../pages/pages";
 ---
 
 <footer>
@@ -27,14 +28,14 @@ import Fancy from "../../../components/spans/Fancy/Fancy.astro";
 
     <section class="col3">
       <h5><Fancy>Secciones</Fancy></h5>
-      <ul>
-        <li>Home</li>
-        <li>About us</li>
-        <li>Work</li>
-        <li>Bundle</li>
-        <li>Insights</li>
-        <li>Contact</li>
-      </ul>
+      <nav>
+        <a href={PAGES.index.path}>{PAGES.index.display}</a>
+        <a href={PAGES.about.path}>{PAGES.about.display}</a>
+        <a href={PAGES.work.path}>{PAGES.work.display}</a>
+        <a href={PAGES.products.path}>{PAGES.products.display}</a>
+        <a href={PAGES.perspectives.path}>{PAGES.perspectives.display}</a>
+        <a href={PAGES.contact.path}>{PAGES.contact.display}</a>
+      </nav>
     </section>
   </div>
 </footer>
@@ -105,12 +106,13 @@ import Fancy from "../../../components/spans/Fancy/Fancy.astro";
           }
         }
 
-        ul {
+        nav {
           padding-left: 20px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          li {
-            list-style: none;
+
+          a {
+            color: inherit;
           }
         }
       }
