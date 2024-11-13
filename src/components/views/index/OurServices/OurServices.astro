@@ -1,7 +1,6 @@
 ---
 import Fancy from "../../../spans/Fancy/Fancy.astro";
 import our_services from "./our_services.png";
-import SliderOurServices from "./SliderOurServices.astro";
 ---
 
 <article class="our" id="our">
@@ -68,7 +67,7 @@ import SliderOurServices from "./SliderOurServices.astro";
     scene = new ScrollMagic.Scene({
       triggerElement: "#our", // Elemento donde se inicia la escena
       duration: "100%", // Duración de la pausa del scroll
-      triggerHook: 0.5, // Punto de disparo (en este caso, en el centro)
+      triggerHook: 0.6, // Punto de disparo (en este caso, en el centro)
       offset: fromto.getBoundingClientRect().height / 2,
     })
       .setPin("#our") // Fija el elemento durante la duración
@@ -124,22 +123,40 @@ import SliderOurServices from "./SliderOurServices.astro";
       .wrapper2 {
         position: relative;
         width: 100%;
+        min-height: 230px;
 
-        .content1,
+        .content1 {
+          h3 {
+            font-size: 116px;
+
+            @media (max-width: 768px) {
+              font-size: 66px;
+            }
+          }
+        }
+
         .content2,
         .content3 {
           width: 100%;
           position: absolute;
           top: 0;
           left: 0;
-        }
-
-        .content1 {
-        }
-
-        .content2,
-        .content3 {
           opacity: 0;
+
+          h4 {
+            font-size: 55px;
+
+            @media (max-width: 768px) {
+              font-size: 30px;
+            }
+          }
+
+          p {
+            font-size: 30px;
+            @media (max-width: 768px) {
+              font-size: 14px;
+            }
+          }
         }
       }
 
