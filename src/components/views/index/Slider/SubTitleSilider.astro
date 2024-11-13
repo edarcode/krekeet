@@ -1,0 +1,22 @@
+---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<h2 id={id}>
+  Entre <Fancy>Usuarios</Fancy> con <Fancy>Marca</Fancy>
+</h2>
+
+<style>
+  h2 {
+    font-size: 41px;
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+</style>

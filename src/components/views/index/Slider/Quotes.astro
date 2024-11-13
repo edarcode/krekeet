@@ -1,6 +1,7 @@
 ---
 import Logo from "../../../logos/Logo/Logo.astro";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
+import SubTitleSilider from "./SubTitleSilider.astro";
 ---
 
 <div class="quotes">
@@ -8,9 +9,7 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
   <h1>
     Trazamos el <Fancy>Camino</Fancy>
   </h1>
-  <h2>
-    Entre <Fancy>Usuarios</Fancy> con <Fancy>Marca</Fancy>
-  </h2>
+  <SubTitleSilider id="subtitle_slider" />
 </div>
 
 <style>
@@ -43,13 +42,6 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
       @media (max-width: 768px) {
         font-size: 40px;
         line-height: 41px;
-      }
-    }
-
-    h2 {
-      font-size: 41px;
-      @media (max-width: 768px) {
-        font-size: 20px;
       }
     }
   }
