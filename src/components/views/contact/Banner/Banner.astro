@@ -1,15 +1,11 @@
 ---
 import Form from "../Form/Form.astro";
 import Quote from "../Quote/Quote.astro";
+import contact from "./contact.mp4";
 ---
 
 <div class="wrapper_banner">
-  <video
-    autoplay
-    muted
-    loop
-    src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730697403/krekeet/jv05dyqjmt0ltzzyybda.mp4"
-  ></video>
+  <video autoplay muted loop src={contact}></video>
   <div class="wrapper1">
     <Quote />
     <Form />
