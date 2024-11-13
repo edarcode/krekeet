@@ -1,11 +1,37 @@
 ---
+import Fancy from "../../../spans/Fancy/Fancy.astro";
 import our_services from "./our_services.png";
 import SliderOurServices from "./SliderOurServices.astro";
 ---
 
-<article class="our">
+<article class="our" id="our">
   <div class="wrapper1">
-    <SliderOurServices cls="ourSlider" />
+    <section class="wrapper2">
+      <div class="content1" id="index_content1">
+        <h3>
+          Nuestros<br /><Fancy>Servicios</Fancy>
+        </h3>
+      </div>
+
+      <div class="content2" id="index_content2">
+        <h4>Servicios<br /><Fancy>Especializados</Fancy></h4>
+        <p>
+          Nuestros servicios de <Fancy>Diseño</Fancy>, <Fancy>Estrategia</Fancy
+          >, <Fancy>Consultoría</Fancy> y <Fancy>Entrega</Fancy> complementan y desarrollan
+          las capacidades internas de nuestros clientes, cooperando a ofrecer y destacar
+          sus productos.
+        </p>
+      </div>
+
+      <div class="content3" id="index_content3">
+        <h4>Servicios<br /><Fancy>Especializados</Fancy></h4>
+        <p>
+          Trabajamos en <Fancy>conexión</Fancy>
+          <Fancy>completa</Fancy> con nuestros clientes, logrando una experiencia
+          y resultados proyectados para superar las expectativas...
+        </p>
+      </div>
+    </section>
     <picture>
       <img
         data-aos="fade-left"
@@ -17,7 +43,59 @@ import SliderOurServices from "./SliderOurServices.astro";
   </div>
 </article>
 
-<script></script>
+<script>
+  import ScrollMagic from "scrollmagic";
+
+  // Variable que contiene la escala actual para no crear a cada rato una scene
+
+  // Contenedor de Desde República Dominicada
+  const fromto = document.querySelector("#our") as HTMLElement;
+  const conent1 = document.querySelector("#index_content1") as HTMLElement;
+  const conent2 = document.querySelector("#index_content2") as HTMLElement;
+  const conent3 = document.querySelector("#index_content3") as HTMLElement;
+
+  // Crear controlador de ScrollMagic
+  const controller = new ScrollMagic.Controller();
+
+  // Configurar la animación de los textos
+  let scene: ScrollMagic.Scene | null = null;
+
+  function initScene(init: boolean = false) {
+    if (scene) {
+      scene.destroy(true);
+    }
+
+    scene = new ScrollMagic.Scene({
+      triggerElement: "#our", // Elemento donde se inicia la escena
+      duration: "100%", // Duración de la pausa del scroll
+      triggerHook: 0.5, // Punto de disparo (en este caso, en el centro)
+      offset: fromto.getBoundingClientRect().height / 2,
+    })
+      .setPin("#our") // Fija el elemento durante la duración
+      .on("progress", () => {
+        const progress = scene?.progress();
+        if (!progress) return;
+
+        if (progress > 0.3) {
+          conent1.style.opacity = "0";
+          conent2.style.opacity = "1";
+        }
+        if (progress > 0.6) {
+          conent2.style.opacity = "0";
+          conent3.style.opacity = "1";
+        }
+      })
+      .addTo(controller);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initScene(true);
+  });
+
+  window.addEventListener("resize", () => {
+    initScene();
+  });
+</script>
 
 <style>
   .our {
@@ -32,6 +110,28 @@ import SliderOurServices from "./SliderOurServices.astro";
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
         justify-items: center;
+      }
+
+      .wrapper2 {
+        position: relative;
+        width: 100%;
+
+        .content1,
+        .content2,
+        .content3 {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .content1 {
+        }
+
+        .content2,
+        .content3 {
+          opacity: 0;
+        }
       }
 
       .ourSlider {
