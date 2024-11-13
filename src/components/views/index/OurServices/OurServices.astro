@@ -67,7 +67,7 @@ import our_services from "./our_services.png";
     scene = new ScrollMagic.Scene({
       triggerElement: "#our", // Elemento donde se inicia la escena
       duration: "100%", // Duración de la pausa del scroll
-      triggerHook: 0.6, // Punto de disparo (en este caso, en el centro)
+      triggerHook: 0.63, // Punto de disparo (en este caso, en el centro)
       offset: fromto.getBoundingClientRect().height / 2,
     })
       .setPin("#our") // Fija el elemento durante la duración
@@ -142,8 +142,8 @@ import our_services from "./our_services.png";
         .content2,
         .content3 {
           transition:
-            opacity 1s,
-            transform 1s;
+            opacity 0.5s,
+            transform 0.5s;
         }
 
         .content1 {
