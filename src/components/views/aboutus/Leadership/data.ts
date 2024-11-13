@@ -1,14 +1,16 @@
 import type { TLeader } from "./types";
+import foto from "./assets/1.png";
+import foto2 from "./assets/2.png";
 
 export const LeadershipData: Array<TLeader> = [
   {
     name: "Felipe Zamora",
     role: "Founder / CEO",
-    imgsrc: "/src/views/aboutus/Leadership/assets/1.png"
+    imgsrc: foto.src,
   },
   {
     name: "Solanyi Polanco",
     role: "Co-Founder / COO",
-    imgsrc: "/src/views/aboutus/Leadership/assets/2.png"
-  }
-]
+    imgsrc: foto2.src,
+  },
+];

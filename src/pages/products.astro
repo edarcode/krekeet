@@ -10,8 +10,22 @@ import Banner from "../components/views/products/Banner/Banner.astro";
 <Layout2 title={PAGES.products.display}>
   <main class="overflow-hidden">
     <Banner />
-    <Business />
-    <Enterprises />
-    <ProductsView />
+    <div class="wrapper1">
+      <Business />
+      <Enterprises />
+      <ProductsView />
+    </div>
   </main>
 </Layout2>
+
+<style>
+  main {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .wrapper1 {
+      padding: var(--xl);
+    }
+  }
+</style>

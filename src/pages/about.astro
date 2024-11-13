@@ -20,13 +20,15 @@ import { PAGES } from "./pages";
 </script>
 
 <Layout2 title={PAGES.about.display}>
-  <main class="overflow-hidden">
+  <main class="overflow-hidden max-w-[1600px] ml-auto mr-auto">
     <Banner />
-    <NewWhoWeAre />
-    <NewConnecting />
-    <NewFromTo />
-    <NewWhyWorkWithUs />
-    <NewWeAre />
-    <NewLeadership />
+    <div class="p-[var(--xl)]">
+      <NewWhoWeAre />
+      <NewConnecting />
+      <NewFromTo />
+      <NewWhyWorkWithUs />
+      <NewWeAre />
+      <NewLeadership />
+    </div>
   </main>
 </Layout2>
