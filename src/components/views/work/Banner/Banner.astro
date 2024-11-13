@@ -1,15 +1,11 @@
 ---
 import Logo from "../../../logos/Logo/Logo.astro";
 import Fancy from "../../../spans/Fancy/Fancy.astro";
+import work from "./work.mp4";
 ---
 
 <div>
-  <video
-    autoplay
-    muted
-    loop
-    src="https://res.cloudinary.com/dvmsllkkg/video/upload/v1730408876/krekeet/ql64nu81lmimlpxbhh2v.mp4"
-  ></video>
+  <video autoplay muted loop src={work}></video>
   <span class="wrapper_txts">
     <span class="wrapper_logo">
       <Logo />
