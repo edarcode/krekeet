@@ -94,9 +94,9 @@ import Fancy from "../../../spans/Fancy/Fancy.astro";
     wheel: true,
     speed: 2000,
     releaseWheel: true,
-    wheelSleep: 300,
+    wheelSleep: 200,
     padding: { left: 32, right: 64 },
-    breakpoints: { 768: { perPage: 1 } },
+    breakpoints: { 768: { perPage: 1 }, 1024: { wheel: false } },
   });
 
   splide.mount();
