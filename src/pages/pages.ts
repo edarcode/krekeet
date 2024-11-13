@@ -21,6 +21,6 @@ export const PAGES = {
   },
   contact: {
     path: "/contact/",
-    display: "Contáctamos",
+    display: "Contáctanos",
   },
 };
