@@ -30,6 +30,10 @@ import { VIDEOS } from "./videos";
   import Splide from "@splidejs/splide";
 
   document.addEventListener("DOMContentLoaded", () => {
+    const subtitleSlider = document.querySelector(
+      "#subtitle_slider"
+    ) as HTMLElement;
+
     const splide = new Splide(".splide", {
       arrows: false,
       pagination: false,
@@ -67,6 +71,23 @@ import { VIDEOS } from "./videos";
     };
 
     splide.on("move", (index) => {
+      if (index === 0) {
+        subtitleSlider.innerHTML =
+          "Entre <span>Usuarios</span> con <span>Marca</span>";
+      }
+      if (index == 1) {
+        subtitleSlider.innerHTML =
+          "Entre <span>Empresa</span> con su <span>Meta</span>";
+      }
+      if (index == 2) {
+        subtitleSlider.innerHTML =
+          "Entre <span>Sueños</span> y <span>Realidades</span>";
+      }
+      if (index == 3) {
+        subtitleSlider.innerHTML =
+          "Entre <span>Esfuerzos</span> con <span>Logros</span>";
+      }
+
       if (index !== 4) return;
       removeSlider();
       animationFakeNav();
